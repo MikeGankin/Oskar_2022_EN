@@ -1,0 +1,26 @@
+.section {
+	background-color: $main-light;
+    padding: 5%;
+}
+
+.section__heading {
+    color: $main-dark;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.section__content {
+    display: block;
+}
+
+.section__text,
+.section-picture__text,
+.section__list {
+    font-family: 'Baskerville Cyrillic';
+    font-weight: 400;
+    font-size: calc(22px + 10 * ((100vw - 425px) / 1480));
+    margin-top: 0;
+	line-height: 1.3;
+	text-align: justify;
+    margin: 0;
+}

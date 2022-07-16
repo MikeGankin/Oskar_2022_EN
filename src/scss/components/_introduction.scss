@@ -1,0 +1,95 @@
+@keyframes dot {
+    from {
+        transform: translate(-50%, -150%);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+  
+    to {
+        transform: translate(-50%, 100%);
+        opacity: 0;
+    }
+}
+
+.introduction {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    padding: 0;
+}
+
+.introduction__text {
+    font-size: calc(30px + 20 * ((100vw - 375px) / (1920 - 375)));
+    color: $main-light;
+    margin: 0;
+    padding-left: 6px;
+    line-height: 1.5;
+}
+
+.introduction__content {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    z-index: 1;
+    padding: 5%;
+}
+
+.introduction__video-wrapper {
+    width: 100%;
+    height: calc(100vh - 80px);
+    position: absolute;
+    overflow: hidden;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 0;
+    left: 0;
+}
+
+.introduction video {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.next-screen {
+    display: none;
+}
+
+@media (min-width: 767px) {
+    .next-screen::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: $main-light;
+        transform: translate(-50%, -50%);
+        animation-name: dot;
+        animation-duration: 1s;
+        animation-delay: 0.2s;
+        animation-fill-mode: both;
+        animation-iteration-count: infinite;
+        animation-timing-function: $cubic;
+    }
+
+    .next-screen {
+        position: absolute;
+        display: block;
+        z-index: 1;
+        bottom: 10vh;
+        left: 50%;
+        width: 20px;
+        height: 30px;
+        border: 2px solid $main-light;
+        border-radius: 10px;
+        pointer-events: all;
+    }
+}

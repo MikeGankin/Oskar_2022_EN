@@ -1,0 +1,39 @@
+.section-picture__text {
+	color: $main-light;
+}
+
+.section-picture__heading {
+	color: $main-light;
+	margin: 0 0 30px 0;
+}
+
+@media (min-width: 767px) {
+    .section-picture {
+        padding: 0 0 0 5%;
+		display: flex;
+	}
+
+	.section-picture__content {
+		flex: 0 0 100%;
+		display: flex;
+	}
+
+    .section-picture__body {
+		width: 50%;
+		padding: 5% 40px 50px 0;
+	}
+
+	.section-picture__img {
+		flex: 0 0 50%;
+		transform: translate(-100%, 0);
+		position: relative;
+	}
+	
+	.section-picture__img img {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+	}
+}
