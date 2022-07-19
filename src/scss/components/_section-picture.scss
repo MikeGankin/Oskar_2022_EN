@@ -20,15 +20,16 @@
 
     .section-picture__body {
 		width: 50%;
-		padding: 5% 40px 50px 0;
+		padding: 5% 50px 50px 0;
 	}
 
 	.section-picture__img {
 		flex: 0 0 50%;
 		transform: translate(-100%, 0);
 		position: relative;
+    z-index: -1;
 	}
-	
+
 	.section-picture__img img {
 		position: absolute;
 		width: 100%;

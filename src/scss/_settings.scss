@@ -7,6 +7,7 @@
 body {
   padding: 0;
   margin: 0;
+  background-color: $main-dark;
 }
 
 img {
@@ -16,7 +17,7 @@ img {
 
 h1 {
   font-family: 'Bebas Neue Cyrillic';
-  font-size: calc(100px + 250 * ((100vw - 375px) / (1920 - 375)));
+  @include adaptiv-font(400, 85);
   font-weight: 400;
   margin-top: 0;
   color: $main-light;
@@ -26,13 +27,9 @@ h1 {
 
 h2 {
   font-family: 'Bebas Neue Cyrillic';
-  font-size: calc(87px + 13 * ((100vw - 375px) / (1920 - 375)));
+  @include adaptiv-font(150, 28);
   font-weight: 400;
-}
-
-p {
-  font-family: 'Baskerville Cyrillic';
-  font-weight: 400;
+  color: $main-light;
 }
 
 button {
@@ -42,23 +39,27 @@ button {
   padding: 0;
 }
 
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 .visually-hidden {
   position: absolute;
-  overflow: hidden;
+  width: 1px;
+  height: 1px;
   margin: -1px;
   border: 0;
   padding: 0;
-  width: 1px;
-  height: 1px;
+  white-space: nowrap;
+  clip-path: inset(100%);
   clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
 .section {
-  background-color: $main-light;
+  font-family: 'Baskerville Cyrillic';
+  font-weight: 400;
+  color: $main-light;
 }
-
-.section-picture {
-  background-color: $main-dark;
-}
-
-

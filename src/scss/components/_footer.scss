@@ -1,0 +1,48 @@
+.footer {
+  width: 100%;
+  height: 100vh;
+  padding: 0;
+  position: relative;
+  background-color: $main-light;
+}
+
+.footer__content {
+  width: 100%;
+  height: calc(100% + 80px);
+  padding: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer__content h2 {
+  color: $main-dark;
+  text-align: center;
+  margin-top: 0;
+}
+
+
+.footer__content p {
+  color: $main-dark;
+}
+
+.footer__content a {
+  color: $main-dark;
+}
+
+.footer__socials a {
+  color: $main-dark;
+  display: block;
+}
+
+.footer__socials {
+  display: grid;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30%;
+}
+
+.footer__socials svg {
+  width: 80px;
+}

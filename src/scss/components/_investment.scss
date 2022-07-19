@@ -1,0 +1,18 @@
+@media (min-width: 767px) {
+  .investments {
+    padding: 0 5% 0 0;
+  }
+
+  .section-picture__content--investments-content {
+    order: 1;
+  }
+
+  .section-picture__body--investments-body  {
+      padding: 5% 0 50px 50px;
+  }
+
+  .section-picture__img--investments-img {
+    transform: translate(0, 0);
+    z-index: -1;
+  }
+}

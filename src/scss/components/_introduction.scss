@@ -7,18 +7,30 @@
     50% {
         opacity: 1;
     }
-  
+
     to {
         transform: translate(-50%, 100%);
         opacity: 0;
     }
 }
 
+@keyframes slideInBanner {
+    from {
+        transform: translateX(-50%);
+        opacity: 0;
+    }
+  
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+  }
+
 .introduction {
     width: 100%;
     height: 100vh;
-    position: relative;
     padding: 0;
+    position: relative;
 }
 
 .introduction__text {
@@ -27,15 +39,29 @@
     margin: 0;
     padding-left: 6px;
     line-height: 1.5;
+    font-family: 'demetriss';
+    font-weight: 400;
 }
 
 .introduction__content {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 0;
-    z-index: 1;
-    padding: 5%;
+  position: absolute;
+  top: 80px;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: calc(100% - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.introduction__content svg {
+  width: 90%;
+  height: 80%;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: $cubic;
+//   opacity: 0;
 }
 
 .introduction__video-wrapper {
@@ -84,7 +110,7 @@
         position: absolute;
         display: block;
         z-index: 1;
-        bottom: 10vh;
+        bottom: 5vh;
         left: 50%;
         width: 20px;
         height: 30px;
