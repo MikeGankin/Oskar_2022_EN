@@ -34,13 +34,19 @@
 .footer__socials a {
   color: $main-dark;
   display: block;
+  margin: 0;
+  width: fit-content;
+  line-height: 0;
 }
 
 .footer__socials {
+  width: 100%;
   display: grid;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30%;
+  grid-template-columns: repeat(5, 1fr);
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .footer__socials svg {
