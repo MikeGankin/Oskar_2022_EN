@@ -1,0 +1,27 @@
+.media a {
+    color: $main-light;
+    text-decoration: none;
+    display: block;
+    font-family: "Bebas Neue Cyrillic";
+    font-size: calc(50px + 20 * (100vw - 375px) / 1545);
+    position: relative;
+    width: fit-content;
+    margin-top: 30px;
+}
+
+.media a:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: $main-light;
+    left: 0;
+    bottom: 10px;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.4s $cubic;
+}
+
+.media a:hover:before {
+    transform: scaleX(1);
+}

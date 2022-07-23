@@ -1,3 +1,29 @@
+.section-picture {
+  display: block;
+  margin-top: -80px;
+}
+
+.section-picture__img {
+  margin-top: -100px;
+  z-index: -1;
+}
+
+.section-picture__img--investment {
+  margin-top: -200px;
+}
+
+.section-picture__img--hobbies {
+  margin-top: -250px;
+}
+
+.section-picture__img--outreach {
+  margin-top: -300px;
+}
+
+.section-picture__body {
+  padding: 5%;
+}
+
 .section-picture__text {
 	color: $main-light;
 }
@@ -7,10 +33,14 @@
 	margin: 0 0 30px 0;
 }
 
+.outreach {
+  margin-top: -170px;
+}
+
 @media (min-width: 767px) {
-    .section-picture {
-        padding: 0 0 0 5%;
+  .section-picture {
 		display: flex;
+    margin-top: 0;
 	}
 
 	.section-picture__content {
@@ -18,16 +48,15 @@
 		display: flex;
 	}
 
-    .section-picture__body {
+  .section-picture__body {
 		width: 50%;
 		padding: 5% 50px 50px 0;
 	}
 
 	.section-picture__img {
 		flex: 0 0 50%;
-		transform: translate(-100%, 0);
 		position: relative;
-    z-index: -1;
+    margin-top: 0;
 	}
 
 	.section-picture__img img {
@@ -35,6 +64,6 @@
 		width: 100%;
 		height: 100%;
 		top: 0;
-		left: 0;
+		right: 100%;
 	}
 }

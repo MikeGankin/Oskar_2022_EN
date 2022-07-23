@@ -4,9 +4,13 @@
   position: relative;
 }
 
+.section__scroll {
+  margin-top: -50px;
+}
+
 .section__heading {
     margin-top: 0;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 
 .section__content {
@@ -21,10 +25,20 @@
 .footer__socials a {
     font-family: 'Baskerville Cyrillic';
     font-weight: 400;
-    font-size: calc(22px + 10 * ((100vw - 425px) / 1480));
+    @include adaptiv-font(50, 22);
     margin-top: 0;
     line-height: 1.5;
     text-align: justify;
     margin: 0;
     color: $main-light;
+}
+
+@media (min-width: 767px) {
+  .section__heading {
+    margin-bottom: 30px;
+  }
+
+  .section__scroll {
+    margin-top: 0;
+  }
 }

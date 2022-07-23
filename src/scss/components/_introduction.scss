@@ -24,7 +24,18 @@
         transform: translateX(0);
         opacity: 1;
     }
-  }
+}
+
+@keyframes scaleInVerBottom {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
 
 .introduction {
     width: 100%;
@@ -57,11 +68,10 @@
 
 .introduction__content svg {
   width: 90%;
-  height: 80%;
+  height: 90%;
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
   animation-timing-function: $cubic;
-//   opacity: 0;
 }
 
 .introduction__video-wrapper {
@@ -118,4 +128,19 @@
         border-radius: 10px;
         pointer-events: all;
     }
+}
+
+.oskar {
+    animation: scaleInVerBottom 0.4s $cubic both;
+    animation-delay: 0.2s;
+}
+  
+.hartmann {
+    animation: scaleInVerBottom 0.4s $cubic both;
+    animation-delay: 0.3s;
+}
+  
+.unicorn {
+    animation: scaleInVerBottom 0.4s $cubic both;
+    animation-delay: 0.4s;
 }

@@ -27,7 +27,7 @@ h1 {
 
 h2 {
   font-family: 'Bebas Neue Cyrillic';
-  @include adaptiv-font(150, 28);
+  @include adaptiv-font(150, 55);
   font-weight: 400;
   color: $main-light;
 }
