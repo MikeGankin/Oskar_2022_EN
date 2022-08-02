@@ -4,6 +4,7 @@
   padding: 0;
   position: relative;
   background-color: $main-light;
+  z-index: 2;
 }
 
 .footer__content {
@@ -59,6 +60,7 @@
   margin: 0;
   width: fit-content;
   line-height: 0;
+  text-decoration: none;
 }
 
 .footer__communication a:after {

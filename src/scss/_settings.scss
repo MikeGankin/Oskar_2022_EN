@@ -10,9 +10,16 @@ body {
   background-color: $main-dark;
 }
 
+.container{
+  top: 80px;
+  left: 0;
+}
+
 img {
-  max-width: 100%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  object-position: top;
 }
 
 h1 {
@@ -27,7 +34,7 @@ h1 {
 
 h2 {
   font-family: 'Bebas Neue Cyrillic';
-  @include adaptiv-font(150, 55);
+  @include adaptiv-font(80, 55);
   font-weight: 400;
   color: $main-light;
 }
@@ -37,6 +44,10 @@ button {
   background-color: transparent;
   cursor: pointer;
   padding: 0;
+}
+
+ol {
+  padding-left: 30px;
 }
 
 .visually-hidden {
@@ -56,4 +67,52 @@ button {
   font-family: 'Baskerville Cyrillic';
   font-weight: 400;
   color: $main-light;
+}
+
+.container {
+  position: relative;
+}
+
+.more-btn {
+  font-family: 'Baskerville Cyrillic';
+  font-weight: 400;
+  @include adaptiv-font(30, 22);
+  line-height: 1.5;
+  color: $main-light;
+  position: relative;
+}
+
+.limiter {
+  overflow: hidden;
+  transition: height 0.4s $cubic;
+  height: 0;
+}
+
+@media (min-width: 767px) {
+  ol {
+    padding-left: 60px;
+  }
+
+  .more-btn:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    transform: scaleX(0);
+    background-color: $main-light;
+    transform-origin: left center;
+    transition: transform 0.4s $cubic;
+    left: 0;
+    bottom: 0;
+  }
+
+  .more-btn:hover:after {
+    transform: scaleX(1);
+  }
+
+  .more-btn:active:after {
+    transform: scaleX(0);
+  }
 }

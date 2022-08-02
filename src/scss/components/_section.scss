@@ -1,11 +1,7 @@
 .section {
-  padding: 5%;
-  z-index: 2;
   position: relative;
-}
-
-.section__scroll {
-  margin-top: -50px;
+  height: fit-content;
+  padding: 5% calc(8% + 40px) 0 5%;
 }
 
 .section__heading {
@@ -18,27 +14,32 @@
 }
 
 .section__text,
-.section-picture__text,
-.section__list,
+.section__list {
+  font-family: 'Baskerville Cyrillic';
+  font-weight: 400;
+  @include adaptiv-font(30, 22);
+  color: $main-light;
+  line-height: 1.5;
+  text-align: justify;
+  margin: 0;
+}
+
+.section__text:last-child {
+  margin-bottom: 20px;
+}
+
 .footer__content p,
 .footer__content a,
 .footer__socials a {
     font-family: 'Baskerville Cyrillic';
     font-weight: 400;
-    @include adaptiv-font(50, 22);
+    @include adaptiv-font(35, 22);
     margin-top: 0;
     line-height: 1.5;
-    text-align: justify;
     margin: 0;
     color: $main-light;
 }
 
-@media (min-width: 767px) {
-  .section__heading {
-    margin-bottom: 30px;
-  }
-
-  .section__scroll {
-    margin-top: 0;
-  }
+.section__list {
+  padding-left: 30px;
 }
