@@ -1,51 +1,10 @@
-@keyframes slideIn {
-  from {
-      transform: translateX(-50%);
-      opacity: 0;
-  }
-
-  to {
-      transform: translateX(0);
-      opacity: 1;
-  }
-}
-@keyframes slideOut {
-  from {
-      transform: translateX(0);
-      opacity: 1;
-  }
-
-  to {
-      transform: translateX(-50%);
-      opacity: 0;
-  }
-}
-@keyframes fadeIn {
-  from {
-      opacity: 0;
-  }
-
-  to {
-      opacity: 1;
-  }
-}
-@keyframes fadeOut {
-  from {
-      opacity: 1;
-  }
-
-  to {
-      opacity: 0;
-  }
-}
-
 .header {
   position: fixed;
   z-index: 10;
   top: 0;
   left: 0;
   width: 100%;
-  height: 80px;
+  height: $height;
   display: flex;
   background-color: $main-dark;
 }
@@ -80,9 +39,7 @@
 .menu__item {
   transform: translateX(-50%);
   opacity: 0;
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-timing-function: $cubic;
+  transition: all 0.4s $cubic;
 }
 
 .menu__item a {
@@ -103,7 +60,7 @@
   bottom: 10px;
   transform: scaleX(0);
   transform-origin: left center;
-  transition: transform 0.4s $cubic;
+  transition: transform 0.2s $cubic;
 }
 
 .menu__item a:hover:before {
@@ -176,13 +133,13 @@
   background-color: $main-light;
   width: 100vw;
   position: absolute;
-  top: 80px;
+  top: $height;
   left: 50%;
-  height: calc(100vh - 80px);
-  z-index: 1;
+  height: calc(100vh - $height);
+  z-index: 3;
   transform-origin: top center;
   transform: translateX(-50%) scaleY(0);
-  transition: transform 0.4s $cubic;
+  transition: scaleY 0.4s $cubic;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -193,25 +150,25 @@
   align-self: flex-start;
 }
 
-.menu__communication {
+.communication {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
   align-items: flex-start;
 }
 
-.menu__communication a {
+.communication a {
   @include adaptiv-font (20, 14);
   color: $main-dark;
   margin-bottom: 15px;
   text-decoration: none;
 }
 
-.menu__communication a:hover {
+.communication a:hover {
   text-decoration: underline;
 }
 
-.menu__socials {
+.communication__list {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -219,55 +176,31 @@
   justify-content: flex-start;
 }
 
-.menu__socials svg {
+.communication__list svg {
   width: 20px;
   height: 20px;
   transition: fill 0.4s $cubic;
 }
 
-.socials__item {
+.communication__item {
   margin-right: 20px;
   opacity: 0;
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-timing-function: $cubic;
+  transition: opacity 0.4s $cubic;
 }
 
-.phone {
+.communication__phone {
   opacity: 0;
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-timing-function: $cubic;
+  transition: opacity 0.4s $cubic;
 }
 
-.mail {
+.communication__mail {
   opacity: 0;
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-timing-function: $cubic;
+  transition: opacity 0.4s $cubic;
 }
 
 @media (min-width: 767px) {
-  .menu__socials svg {
+  .communication__list svg {
     width: 40px;
     height: 40px;
-  }
-
-  .menu__contacts {
-    position: absolute;
-    bottom: 5%;
-    right: 5%;
-  }
-
-  .menu__communication {
-    align-items: flex-end;
-  }
-
-  .menu__socials {
-    justify-content: flex-end;
-  }
-
-  .socials__item {
-    margin-left: 20px;
   }
 }

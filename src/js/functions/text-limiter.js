@@ -19,9 +19,6 @@ export const collapseSection = (element) => {
       element.style.height = 0 + 'px';
     });
   });
-
-  // обозначаем что текущий контейнер свернут
-  element.setAttribute('data-collapsed', 'true');
 }
 
 export const expandSection = (element) => {
@@ -37,8 +34,5 @@ export const expandSection = (element) => {
   }
   element.addEventListener('transitionend', heightNull);
   element.removeEventListener('transitionend', heightNull);
-
-  // mark the section as "currently not collapsed"
-  element.setAttribute('data-collapsed', 'false');
 }
 

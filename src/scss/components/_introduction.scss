@@ -70,9 +70,7 @@
 .introduction__content svg {
   width: 90%;
   height: 90%;
-  animation-duration: 0.5s;
-  animation-fill-mode: forwards;
-  animation-timing-function: $cubic;
+  overflow: visible;
 }
 
 .introduction__video-wrapper {
@@ -99,18 +97,15 @@
 }
 
 .oskar {
-    animation: scaleInVerBottom 0.4s $cubic both;
-    animation-delay: 0.2s;
+    animation: scaleInVerBottom 1s $cubic forwards 0.2s;
 }
 
 .hartmann {
-    animation: scaleInVerBottom 0.4s $cubic both;
-    animation-delay: 0.3s;
+    animation: scaleInVerBottom 1s $cubic forwards 0.4s;
 }
 
 .unicorn {
-    animation: scaleInVerBottom 0.4s $cubic both;
-    animation-delay: 0.4s;
+    animation: scaleInVerBottom 1s $cubic forwards 0.6s;
 }
 
 @media (min-width: 767px) {
@@ -150,6 +145,6 @@
   }
 
   .introduction {
-    height: calc(100vh - 80px);
+    height: calc(100vh - $height);
   }
 }

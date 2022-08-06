@@ -1,6 +1,38 @@
+import gsap from "gsap";
+
+// Таймлайн
+let tl = gsap.timeline();
+
+ // Переменные
 let line1 = document.querySelector('.btn__line--1');
 let line2 = document.querySelector('.btn__line--2');
 let line3 = document.querySelector('.btn__line--3');
+let menuContent = document.querySelector('.menu__content');
+let menuItems = document.querySelector('.menu__list').children;
+let menuCommunication = document.querySelector('.menu__communication').children;
+let communicationList = document.querySelector('.communication__list').children;
+
+
+
+
+// Создание массива
+// const createArray = (children) => {
+//   return Array.from(children);
+// }
+
+
+// Объединение массивов
+// const arrayConcatter = (children1, children2) => {
+//   let array1 = Array.from(children1);
+//   let array2 = Array.from(children2)
+//   return array1.push(array2);
+// }
+
+// Разворот массива
+// const createReversedArray = (array) => {
+//   return array.reverse();
+// }
+
 
 const burgerToCross = () => {
   line1.style.transform = 'translateY(220%) rotate(45deg)';
@@ -14,52 +46,38 @@ const crossToBurger = () => {
 }
 
 const menuOpen = () => {
-  let menuContent = document.querySelector('.menu__content');
-  let menuItems = document.querySelectorAll('.menu__item');
-  let menuCommunication = Array.from(document.querySelector('.menu__communication').children);
-  let menuSocials = Array.from(document.querySelector('.menu__socials').children);
-  let menuContacts = menuCommunication.concat(menuSocials);
+  setTimeout(() => {
+    menuContent.style.display = 'flex';
+  });
+
   burgerToCross();
-  menuContent.style.transform = 'translateX(-50%) scaleY(1)';
-  setTimeout(()=> {
-    menuItems.forEach((element, index) => {
-      element.style.animationName = 'slideIn';
-      element.style.animationDelay = `${index}00ms`;
-    });
-  }, 500)
-  setTimeout(()=> {
-    menuContacts.forEach((element, index) => {
-      element.style.animationName = 'fadeIn';
-      element.style.animationDelay = `${index}00ms`;
-    });
-  }, 1000)
+
+  // Анимация задника меню
+  tl.to(menuContent, { scaleY: 1});
+
+  // Анимация ссылок
+  tl.to(menuItems, {stagger: 0.1, opacity: 1, xPercent: 0}, '+=0.2');
+
+  // Анимация контактов
+  tl.to(menuCommunication, {stagger: 0.1, opacity: 1}, '+=0.2');
+  tl.to(communicationList, {stagger: 0.1, opacity: 1});
 }
 
 export const menuClose = () => {
-  let menuContent = document.querySelector('.menu__content');
-  let menuItems = document.querySelectorAll('.menu__item');
-  let menuCommunication = Array.from(document.querySelector('.menu__communication').children);
-  let menuSocials = Array.from(document.querySelector('.menu__socials').children);
-  let menuContacts = menuCommunication.concat(menuSocials);
-  menuItems.forEach((element, index) => {
-    element.style.animationName = 'slideOut';
-    element.style.animationDelay = `${index}00ms`;
-  });
-  let delayString = menuItems[menuItems.length - 1].style.animationDelay;
-  let delayNumber = parseInt(delayString, 10);
-  setTimeout(()=> {
-    crossToBurger();
-    menuContent.style.transform = '';
-  }, delayNumber + 400);
-  setTimeout(()=> {
-    menuContacts.forEach((element, index) => {
-      element.style.animationName = 'fadeOut';
-      element.style.animationDelay = `${index}00ms`;
-    });
-  }, 600)
+  crossToBurger();
+
+  // Анимация контактов
+  // tl.to(createReversedArray(arrayConcatter(communication, communicationList)), {stagger: 0.1, opacity: 0});
+
+  // Анимация ссылок
+  // tl.to(menuItems, {duration: 0.4, stagger: 0.1, opacity: 0, xPercent: -50}, '+=0.4');
+
+  // Анимация задника меню
+  // tl.to(menuContent, { scaleY: 0});
 }
 
 export const menuAnimation = () => {
+
     let menu = document.querySelector('.menu');
     menu.classList.toggle('open');
     if(menu.classList.contains('open')) {

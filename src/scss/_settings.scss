@@ -11,7 +11,7 @@ body {
 }
 
 .container{
-  top: 80px;
+  top: $height;
   left: 0;
 }
 
@@ -103,7 +103,7 @@ ol {
     transform: scaleX(0);
     background-color: $main-light;
     transform-origin: left center;
-    transition: transform 0.4s $cubic;
+    transition: transform 0.2s $cubic;
     left: 0;
     bottom: 0;
   }
@@ -113,6 +113,8 @@ ol {
   }
 
   .more-btn:active:after {
+    display: none;
     transform: scaleX(0);
+    transition: none;
   }
 }
