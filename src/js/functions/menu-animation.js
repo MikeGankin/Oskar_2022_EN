@@ -12,39 +12,28 @@ let menuItems = document.querySelector('.menu__list').children;
 let menuCommunication = document.querySelector('.menu__communication').children;
 let communicationList = document.querySelector('.communication__list').children;
 
-
-
-
-// Создание массива
-// const createArray = (children) => {
-//   return Array.from(children);
-// }
-
-
-// Объединение массивов
-// const arrayConcatter = (children1, children2) => {
-//   let array1 = Array.from(children1);
-//   let array2 = Array.from(children2)
-//   return array1.push(array2);
-// }
-
 // Разворот массива
-// const createReversedArray = (array) => {
-//   return array.reverse();
-// }
+const createReversedArray = (collection) => {
+  let newArray = Array.from(collection);
+  let reversed = newArray.reverse();
+  return Array.from(reversed);
+}
 
-
+// Анимация бургера в крестик
 const burgerToCross = () => {
   line1.style.transform = 'translateY(220%) rotate(45deg)';
   line2.style.transform = 'translateY(-50%) scaleX(0)';
   line3.style.transform = 'translateY(-240%) rotate(-45deg)';
 }
+
+// Анимация крестика в бургер
 const crossToBurger = () => {
   line1.style.transform = '';
   line2.style.transform = '';
   line3.style.transform = '';
 }
 
+// Функция открытия меню
 const menuOpen = () => {
   setTimeout(() => {
     menuContent.style.display = 'flex';
@@ -59,23 +48,26 @@ const menuOpen = () => {
   tl.to(menuItems, {stagger: 0.1, opacity: 1, xPercent: 0}, '+=0.2');
 
   // Анимация контактов
-  tl.to(menuCommunication, {stagger: 0.1, opacity: 1}, '+=0.2');
+  tl.to(menuCommunication, {stagger: 0.1, opacity: 1});
   tl.to(communicationList, {stagger: 0.1, opacity: 1});
 }
 
+// Функция закрытия меню
 export const menuClose = () => {
   crossToBurger();
 
   // Анимация контактов
-  // tl.to(createReversedArray(arrayConcatter(communication, communicationList)), {stagger: 0.1, opacity: 0});
+  tl.to(createReversedArray(communicationList), {stagger: 0.1, opacity: 0});
+  tl.to(createReversedArray(menuCommunication), {stagger: 0.1, opacity: 0});
 
   // Анимация ссылок
-  // tl.to(menuItems, {duration: 0.4, stagger: 0.1, opacity: 0, xPercent: -50}, '+=0.4');
+  tl.to(createReversedArray(menuItems), {duration: 0.4, stagger: 0.1, opacity: 0, xPercent: -50});
 
   // Анимация задника меню
-  // tl.to(menuContent, { scaleY: 0});
+  tl.to(menuContent, { scaleY: 0}, '+=0.3');
 }
 
+// Функция анимации меню
 export const menuAnimation = () => {
 
     let menu = document.querySelector('.menu');
