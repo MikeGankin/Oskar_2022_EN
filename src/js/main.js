@@ -4,6 +4,7 @@ import {player} from "./functions/player";
 import {bannerAnimation} from "./functions/banner-animation";
 import {collapseSection} from './functions/text-limiter';
 import {expandSection} from './functions/text-limiter';
+import './functions/vh-mobile';
 
 //Переменные
 let burger = document.querySelector('.menu__btn');
@@ -16,12 +17,12 @@ let tocLinks = document.querySelectorAll('.table-of-content__link');
 const scroll = new LocomotiveScroll({
   el: document.querySelector('[data-scroll-container]'),
   smooth: true,
-  // tablet: {
-  //   smooth: false,
-  // },
-  // smartphone: {
-  //   smooth: false,
-  // }
+  tablet: {
+    smooth: false,
+  },
+  smartphone: {
+    smooth: false,
+  }
 });
 
 // Обновление скрола при изменении высоты элементов на странице
