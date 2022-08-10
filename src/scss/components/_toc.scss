@@ -1,61 +1,67 @@
 .table-of-content {
-  position: fixed;
-  right: 0;
-  top: $height;
-  width: calc(5% + 40px);
-  height: calc(100vh - 80px);
-  z-index: 1;
+  display: none;
 }
 
-.table-of-content__list {
-  position: relative;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 80%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  transition: transform 0.4s $cubic;
-  top: 50%;
-  transform: translateY(-50%);
-}
+@media (min-width: 1023px) {
+  .table-of-content {
+    display: block;
+    position: fixed;
+    right: 0;
+    top: $height;
+    width: calc(5% + 40px);
+    height: calc(100vh - 80px);
+    z-index: 1;
+  }
 
-.table-of-content__item {
-  padding-top: 5px;
-}
+  .table-of-content__list {
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    transition: transform 0.4s $cubic;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 
-.table-of-content__line {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 30%;
-  height: 2px;
-  background-color: $main-light;
-  margin-top: 13px;
-  transition: all 0.4s $cubic;
-}
+  .table-of-content__item {
+    padding-top: 5px;
+  }
 
-.table-of-content__link {
-  display: block;
-  color: $main-light;
-  font-size: 18px;
-  font-family: 'Bebas Neue Cyrillic';
-  text-decoration: none;
-  transform: scale(1);
-  opacity: 0.5;
-  transition: all 0.2s $cubic;
-  cursor: pointer;
-}
+  .table-of-content__line {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30%;
+    height: 2px;
+    background-color: $main-light;
+    margin-top: 13px;
+    transition: all 0.4s $cubic;
+  }
 
-.active {
-  transform: scale(1.1);
-  opacity: 1;
-  transform-origin: center left;
-}
+  .table-of-content__link {
+    display: block;
+    color: $main-light;
+    font-size: 18px;
+    font-family: 'Bebas Neue Cyrillic';
+    text-decoration: none;
+    transform: scale(1);
+    opacity: 0.5;
+    transition: all 0.2s $cubic;
+    cursor: pointer;
+  }
 
-.table-of-content__link:hover {
-  opacity: 1;
+  .active {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+
+  .table-of-content__link:hover {
+    opacity: 1;
+  }
 }

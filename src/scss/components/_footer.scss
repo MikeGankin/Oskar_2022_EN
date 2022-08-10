@@ -8,9 +8,6 @@
 }
 
 .footer__content {
-  position: absolute;
-  top: 80px;
-  left: 0;
   width: 100%;
   height: calc(100% - 80px);
   padding: 5%;
@@ -115,7 +112,7 @@
   fill: #c4302b;
 }
 
-@media (min-width: 767px) {
+@media (min-width: 1023px) {
   .footer__content {
     margin-top: 0;
   }

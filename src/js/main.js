@@ -15,7 +15,13 @@ let tocLinks = document.querySelectorAll('.table-of-content__link');
 // Управление скроллом
 const scroll = new LocomotiveScroll({
   el: document.querySelector('[data-scroll-container]'),
-  smooth: true
+  smooth: true,
+  // tablet: {
+  //   smooth: false,
+  // },
+  // smartphone: {
+  //   smooth: false,
+  // }
 });
 
 // Обновление скрола при изменении высоты элементов на странице

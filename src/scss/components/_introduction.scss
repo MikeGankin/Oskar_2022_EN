@@ -108,7 +108,7 @@
     animation: scaleInVerBottom 1s $cubic forwards 0.6s;
 }
 
-@media (min-width: 767px) {
+@media (min-width: 1023px) {
   .next-screen::before {
       content: '';
       position: absolute;

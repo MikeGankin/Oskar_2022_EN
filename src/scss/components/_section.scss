@@ -1,12 +1,16 @@
 .section {
   position: relative;
   height: fit-content;
-  padding: 5% calc(8% + 40px) 0 5%;
+  padding: 3% 5%;
+}
+
+.bio {
+  padding: 5% 5% 3% 5%;
 }
 
 .section__heading {
     margin-top: 0;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 
 .section__content {
@@ -24,10 +28,6 @@
   margin: 0;
 }
 
-.section__text:last-child {
-  margin-bottom: 20px;
-}
-
 .footer__content p,
 .footer__content a,
 .footer__socials a {
@@ -42,4 +42,22 @@
 
 .section__list {
   padding-left: 30px;
+}
+
+// @media (max-width: 475px) {
+
+// }
+
+@media (min-width: 1023px) {
+  .section__heading {
+    margin-bottom: 30px;
+  }
+
+  .section {
+    padding: 5% calc(8% + 40px) 0 5%;
+  }
+
+  .section__text:last-child {
+    margin-bottom: 20px;
+  }
 }
