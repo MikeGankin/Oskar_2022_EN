@@ -13,6 +13,7 @@ let menu = document.querySelector('.table-of-content__list');
 let main = document.querySelector('main');
 let sections = document.querySelectorAll('section');
 let tocLinks = document.querySelectorAll('.table-of-content__link');
+let windowInnerWidth = 0;
 
 // Конструкторы
 // Управление скроллом
@@ -44,17 +45,11 @@ const observer = new IntersectionObserver((entries) => {
     }
   });
 }, {
-  threshold: 0.7
+  threshold: 0.6
 });
 
 // Проверка девайса
 let detect = new MobileDetect(window.navigator.userAgent);
-if (detect.mobile()) {
-  vhMobile();
-  window.addEventListener('resize', vhMobile);
-} else {
-  window.removeEventListener('resize', vhMobile);
-}
 
 //Функции
 
@@ -76,11 +71,13 @@ const textCollapser = (e) => {
     if (target.parentNode.querySelector('.limiter').hasAttribute('data-collapsed')) {
       target.parentNode.querySelector('.limiter').removeAttribute('data-collapsed')
       expandSection(target.parentNode.querySelector('.limiter'))
-      target.textContent = 'Read less'
+      target.textContent = 'Read less';
+      target.classList.remove('collapsed');
     } else {
       target.parentNode.querySelector('.limiter').setAttribute('data-collapsed', '')
       collapseSection(target.parentNode.querySelector('.limiter'))
-      target.textContent = 'Read more'
+      target.textContent = 'Read more';
+      target.classList.add('collapsed');
     }
   }
 }
@@ -94,6 +91,14 @@ const sectionObserver = () => {
   });
 }
 sectionObserver();
+
+const vhFixer = () => {
+  if (detect.mobile()) {
+    vhMobile(windowInnerWidth);
+    window.addEventListener('resize', vhMobile);
+  }
+}
+vhFixer();
 
 //События
 menu.addEventListener('click', handleClick)

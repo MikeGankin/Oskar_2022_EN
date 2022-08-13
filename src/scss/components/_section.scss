@@ -1,11 +1,7 @@
 .section {
   position: relative;
   height: fit-content;
-  padding: 3% 5%;
-}
-
-.bio {
-  padding: 5% 5% 3% 5%;
+  padding: 10% 5%;
 }
 
 .section__heading {
@@ -21,7 +17,7 @@
 .section__list {
   font-family: 'Baskerville Cyrillic';
   font-weight: 400;
-  @include adaptiv-font(30, 22);
+  @include adaptiv-font(30, 24);
   color: $main-light;
   line-height: 1.5;
   text-align: justify;

@@ -1,6 +1,6 @@
 .section-picture {
   display: block;
-  padding: 3% 0;
+  padding: 10% 0;
 }
 
 .family {
@@ -10,7 +10,7 @@
 .section-picture__text {
   font-family: 'Baskerville Cyrillic';
   font-weight: 400;
-  @include adaptiv-font(30, 22);
+  @include adaptiv-font(30, 24);
   color: $main-light;
   line-height: 1.5;
   text-align: justify;
@@ -20,6 +20,15 @@
 .section-picture__heading {
 	color: $main-light;
 	margin: 0 0 15px 0;
+}
+
+.section-picture__heading--business {
+  margin: 0;
+}
+
+.section-picture__text--business {
+  margin: 0 0 30px 0;
+  line-height: 1;
 }
 
 .section-picture__text:last-child {
@@ -32,6 +41,12 @@
 
 .section-picture__body {
   padding: 0 5%;
+}
+
+@media (max-width: 475px) {
+  .section-picture__img {
+    height: 500px;
+  }
 }
 
 @media (min-width: 1439px) {
@@ -65,5 +80,9 @@
 
   .section-picture__heading {
     margin: 0 0 30px 0;
+  }
+
+  .section-picture__heading--business {
+    margin: 0;
   }
 }
