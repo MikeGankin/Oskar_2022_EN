@@ -4,7 +4,7 @@
     font-family: "#{$font-family}";
     src: url('../fonts/#{$url}.woff2') format("woff2");
     font-weight: #{$weight};
-    font-display: swap;
+    // font-display: swap;
     font-style: $style;
   }
 }

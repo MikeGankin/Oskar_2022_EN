@@ -1,15 +1,18 @@
 .footer {
   width: 100%;
   height: 100vh;
+  height: var(--windowInnerHeight, 100vh);
   padding: 0;
-  position: relative;
   background-color: $main-light;
   z-index: 2;
 }
 
 .footer__content {
+  position: relative;
+  top: $height;
+  left: 0;
   width: 100%;
-  height: calc(100% - 80px);
+  height: calc(100% - $height);
   padding: 5%;
   display: flex;
   flex-direction: column;
@@ -112,7 +115,7 @@
   fill: #c4302b;
 }
 
-@media (min-width: 1023px) {
+@media (min-width: 1439px) {
   .footer__content {
     margin-top: 0;
   }

@@ -39,29 +39,19 @@
 
 .introduction {
     width: 100%;
-    height: calc(var(--vh, 1vh) * 100);
+    height: 100vh;
+    height: var(--windowInnerHeight, 100vh);
     padding: 0;
-    position: relative;
     z-index: 2;
 }
 
-.introduction__text {
-    font-size: calc(30px + 20 * ((100vw - 375px) / (1920 - 375)));
-    color: $main-light;
-    margin: 0;
-    padding-left: 6px;
-    line-height: 1.5;
-    font-family: 'demetriss';
-    font-weight: 400;
-}
-
 .introduction__content {
-  position: absolute;
-  top: 0;
+  position: relative;
+  top: $height;
   left: 0;
   z-index: 1;
   width: 100%;
-  height: 100%;
+  height: calc(100% - $height);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -92,6 +82,16 @@
     width: 100%;
 }
 
+.introduction__text {
+  font-size: calc(30px + 20 * ((100vw - 375px) / (1920 - 375)));
+  color: $main-light;
+  margin: 0;
+  padding-left: 6px;
+  line-height: 1.5;
+  font-family: 'demetriss';
+  font-weight: 400;
+}
+
 .next-screen {
     display: none;
 }
@@ -108,7 +108,7 @@
     animation: scaleInVerBottom 1s $cubic forwards 0.6s;
 }
 
-@media (min-width: 1023px) {
+@media (min-width: 1439px) {
   .next-screen::before {
       content: '';
       position: absolute;
@@ -142,9 +142,5 @@
 
   .introduction__content svg {
     width: 70%;
-  }
-
-  .introduction {
-    height: calc(100vh - $height);
   }
 }

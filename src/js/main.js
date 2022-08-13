@@ -1,10 +1,11 @@
 import LocomotiveScroll from 'locomotive-scroll';
-import {menuAnimation} from "./functions/menu-animation";
+import MobileDetect from 'mobile-detect';
+import {debouncedMenuAnimation} from "./functions/menu-animation";
 import {player} from "./functions/player";
 import {bannerAnimation} from "./functions/banner-animation";
 import {collapseSection} from './functions/text-limiter';
 import {expandSection} from './functions/text-limiter';
-import './functions/vh-mobile';
+import {vhMobile} from './functions/vh-mobile';
 
 //Переменные
 let burger = document.querySelector('.menu__btn');
@@ -13,6 +14,7 @@ let main = document.querySelector('main');
 let sections = document.querySelectorAll('section');
 let tocLinks = document.querySelectorAll('.table-of-content__link');
 
+// Конструкторы
 // Управление скроллом
 const scroll = new LocomotiveScroll({
   el: document.querySelector('[data-scroll-container]'),
@@ -28,7 +30,7 @@ const scroll = new LocomotiveScroll({
 // Обновление скрола при изменении высоты элементов на странице
 new ResizeObserver(() => scroll.update()).observe(document.querySelector("[data-scroll-container]"))
 
-// Переключение навигации по скролу
+// Слежка за пересечением вьюпорта
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -44,14 +46,15 @@ const observer = new IntersectionObserver((entries) => {
 }, {
   threshold: 0.7
 });
-const sectionObserver = () => {
-  let arr = Array.from(sections);
-  let shifted = arr.slice(1, 11);
-  shifted.forEach(element => {
-    observer.observe(element)
-  });
+
+// Проверка девайса
+let detect = new MobileDetect(window.navigator.userAgent);
+if (detect.mobile()) {
+  vhMobile();
+  window.addEventListener('resize', vhMobile);
+} else {
+  window.removeEventListener('resize', vhMobile);
 }
-sectionObserver();
 
 //Функции
 
@@ -82,8 +85,18 @@ const textCollapser = (e) => {
   }
 }
 
+// Функция переключения навигации по скролу
+const sectionObserver = () => {
+  let arr = Array.from(sections);
+  let shifted = arr.slice(1, 11);
+  shifted.forEach(element => {
+    observer.observe(element)
+  });
+}
+sectionObserver();
+
 //События
 menu.addEventListener('click', handleClick)
-burger.addEventListener('click', menuAnimation);
+burger.addEventListener('click', debouncedMenuAnimation);
 window.addEventListener('load', player, bannerAnimation, {once:true});
 main.addEventListener('click', textCollapser);

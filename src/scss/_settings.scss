@@ -4,6 +4,43 @@
   box-sizing: border-box;
 }
 
+@keyframes xBorderInAnimation {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+@keyframes yBorderInAnimation {
+  from {
+    transform: scaleY(0);
+  }
+
+  to {
+    transform: scaleY(1);
+  }
+}
+@keyframes xBorderOutAnimation {
+  from {
+    transform: scaleX(1);
+  }
+
+  to {
+    transform: scaleX(0);
+  }
+}
+@keyframes yBorderOutAnimation {
+  from {
+    transform: scaleY(1);
+  }
+
+  to {
+    transform: scaleY(0);
+  }
+}
+
 body {
   padding: 0;
   margin: 0;
@@ -15,11 +52,6 @@ body {
 
 body::-webkit-scrollbar {
   display: none; /* for Chrome, Safari, and Opera */
-}
-
-.container{
-  top: $height;
-  left: 0;
 }
 
 img {
@@ -47,10 +79,10 @@ h2 {
 }
 
 button {
-  border: 0;
   background-color: transparent;
   cursor: pointer;
   padding: 0;
+  border: none;
 }
 
 ol {
@@ -88,6 +120,75 @@ ol {
   color: $main-light;
   position: relative;
   margin-bottom: 0;
+  padding: 10px;
+
+    & span {
+      position: absolute;
+      background-color: $main-light;
+      animation-duration: $animation-duration;
+      animation-timing-function: $cubic;
+      animation-fill-mode: both;
+    }
+
+    & .border-top {
+      width: 100%;
+      height: 2px;
+      animation-name: xBorderOutAnimation;
+      top: 0;
+      left: 0;
+      transform-origin: left center;
+      animation-delay: calc($animation-duration + 300ms);
+    }
+
+    & .border-right {
+      width: 2px;
+      height: 100%;
+      animation-name: yBorderOutAnimation;
+      right: 0;
+      top: 0;
+      transform-origin: top center;
+      animation-delay: calc($animation-duration + 200ms);
+    }
+
+    & .border-bottom {
+      width: 100%;
+      height: 2px;
+      animation-name: xBorderOutAnimation;
+      bottom: 0;
+      left: 0;
+      transform-origin: right center;
+      animation-delay: calc($animation-duration + 100ms);
+    }
+
+    & .border-left {
+      width: 2px;
+      height: 100%;
+      animation-name: yBorderOutAnimation;
+      left: 0;
+      top: 0;
+      transform-origin: bottom center;
+    }
+}
+
+.more-btn:hover {
+  & .border-top {
+    animation-name: xBorderInAnimation;
+  }
+
+  & .border-right {
+    animation-name: yBorderInAnimation;
+    animation-delay: calc($animation-duration + 100ms);
+  }
+
+  & .border-bottom {
+    animation-name: xBorderInAnimation;
+    animation-delay: calc($animation-duration + 200ms);
+  }
+
+  & .border-left {
+    animation-name: yBorderInAnimation;
+    animation-delay: calc($animation-duration + 300ms);
+  }
 }
 
 .limiter {
@@ -96,37 +197,12 @@ ol {
   height: 0;
 }
 
-@media (min-width: 767px) {
+@media (min-width: 1439px) {
   ol {
     padding-left: 60px;
   }
 
   .more-btn {
     margin-bottom: 30px;
-  }
-
-  .more-btn:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    transform: scaleX(0);
-    background-color: $main-light;
-    transform-origin: left center;
-    transition: transform 0.2s $cubic;
-    left: 0;
-    bottom: 0;
-  }
-
-  .more-btn:hover:after {
-    transform: scaleX(1);
-  }
-
-  .more-btn:active:after {
-    display: none;
-    transform: scaleX(0);
-    transition: none;
   }
 }
