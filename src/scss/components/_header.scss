@@ -64,10 +64,6 @@
   transition: transform 0.2s $cubic;
 }
 
-.navigation__item a:hover:before {
-  transform: scaleX(1);
-}
-
 .menu__lang-item button {
   width: 40px;
   color: $main-light;
@@ -166,10 +162,6 @@
   text-decoration: none;
 }
 
-.communication a:hover {
-  text-decoration: underline;
-}
-
 .navigation__list {
   margin: 0;
   padding: 0;
@@ -204,5 +196,13 @@
   .navigation__list svg {
     width: 40px;
     height: 40px;
+  }
+
+  .communication a:hover {
+    text-decoration: underline;
+  }
+
+  .navigation__item a:hover:before {
+    transform: scaleX(1);
   }
 }

@@ -119,48 +119,26 @@ ol {
   font-weight: 400;
   @include adaptiv-font(30, 22);
   color: $main-light;
-  margin: 0 0 30px 0;
+  margin: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: relative;
-  padding-right: 30px;
-
-  &::after {
-    content: '';
-    width: 13%;
-    height: 50%;
-    position: absolute;
-    top: 20%;
-    right: 0;
-    transform: rotate(270deg);
-    background-image: url("data:image/svg+xml,%3Csvg width='30px' height='30px' viewBox='0 0 15 15' xmlns='http://www.w3.org/2000/svg' id='arrow'%3E%3Cpath d='M8.29289 2.29289C8.68342 1.90237 9.31658 1.90237 9.70711 2.29289L14.2071 6.79289C14.5976 7.18342 14.5976 7.81658 14.2071 8.20711L9.70711 12.7071C9.31658 13.0976 8.68342 13.0976 8.29289 12.7071C7.90237 12.3166 7.90237 11.6834 8.29289 11.2929L11 8.5H1.5C0.947715 8.5 0.5 8.05228 0.5 7.5C0.5 6.94772 0.947715 6.5 1.5 6.5H11L8.29289 3.70711C7.90237 3.31658 7.90237 2.68342 8.29289 2.29289Z' fill='%23ffffff'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    transform-origin: center center;
-  }
-}
-
-.collapsed::after {
-    content: '';
-    width: 13%;
-    height: 50%;
-    position: absolute;
-    top: 20%;
-    right: 0;
-    transform: rotate(90deg);
-    background-image: url("data:image/svg+xml,%3Csvg width='30px' height='30px' viewBox='0 0 15 15' xmlns='http://www.w3.org/2000/svg' id='arrow'%3E%3Cpath d='M8.29289 2.29289C8.68342 1.90237 9.31658 1.90237 9.70711 2.29289L14.2071 6.79289C14.5976 7.18342 14.5976 7.81658 14.2071 8.20711L9.70711 12.7071C9.31658 13.0976 8.68342 13.0976 8.29289 12.7071C7.90237 12.3166 7.90237 11.6834 8.29289 11.2929L11 8.5H1.5C0.947715 8.5 0.5 8.05228 0.5 7.5C0.5 6.94772 0.947715 6.5 1.5 6.5H11L8.29289 3.70711C7.90237 3.31658 7.90237 2.68342 8.29289 2.29289Z' fill='%23ffffff'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    transform-origin: center center;
+  border: 2px solid $main-light;
+  padding: 12px 7px 7px 7px;
+  line-height: 1;
+  transition: opacity 0.2s $cubic;
 }
 
 .limiter {
   overflow: hidden;
   transition: height 0.4s $cubic;
   height: 0;
+  margin-bottom: 20px;
+}
+
+.more-btn:active {
+  opacity: 1;
 }
 
 @media (min-width: 1439px) {
@@ -169,11 +147,10 @@ ol {
   }
 
   .more-btn {
-    margin-bottom: 30px;
+    opacity: 0.8;
   }
 
-  .more-btn img {
-    width: 25px;
-    height: 25px;
+  .more-btn:hover {
+    opacity: 1;
   }
 }

@@ -18,7 +18,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  margin-top: -32px;
 }
 
 .footer__content h2 {
@@ -50,7 +49,7 @@
   display: block;
   position: relative;
   width: fit-content;
-  line-height: 1.7;
+  line-height: 1;
   margin-bottom: 20px;
 }
 
@@ -70,14 +69,10 @@
   height: 3px;
   background-color: $main-dark;
   left: 0;
-  bottom: 10px;
+  bottom: 0;
   transform: scaleX(0);
   transform-origin: left center;
   transition: transform 0.4s $cubic;
-}
-
-.footer__communication a:hover:after {
-  transform: scaleX(1);
 }
 
 .footer__socials {
@@ -95,23 +90,23 @@
   transition: fill 0.4s $cubic;
 }
 
-.telegram svg:hover {
+.telegram svg:active {
   fill: #0088cc;
 }
 
-.instagram svg:hover {
+.instagram svg:active {
   fill: #833AB4;
 }
 
-.vk svg:hover {
+.vk svg:active {
   fill: #0077ff;
 }
 
-.facebook svg:hover {
+.facebook svg:active {
   fill: #3b5998;
 }
 
-.youtube svg:hover {
+.youtube svg:active {
   fill: #c4302b;
 }
 
@@ -127,5 +122,29 @@
   .footer__socials {
     width: 60%;
     justify-content: space-evenly;
+  }
+
+  .footer__communication a:hover:after {
+    transform: scaleX(1);
+  }
+
+  .telegram svg:hover {
+    fill: #0088cc;
+  }
+
+  .instagram svg:hover {
+    fill: #833AB4;
+  }
+
+  .vk svg:hover {
+    fill: #0077ff;
+  }
+
+  .facebook svg:hover {
+    fill: #3b5998;
+  }
+
+  .youtube svg:hover {
+    fill: #c4302b;
   }
 }

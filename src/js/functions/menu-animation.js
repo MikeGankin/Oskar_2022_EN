@@ -73,5 +73,5 @@ const menuAnimation = () => {
   }
 }
 
-// Debouced
+// Debounced
 export const debouncedMenuAnimation = debounce(menuAnimation, 200);

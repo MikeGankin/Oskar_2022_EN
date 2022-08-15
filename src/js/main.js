@@ -3,8 +3,7 @@ import MobileDetect from 'mobile-detect';
 import {debouncedMenuAnimation} from "./functions/menu-animation";
 import {player} from "./functions/player";
 import {bannerAnimation} from "./functions/banner-animation";
-import {collapseSection} from './functions/text-limiter';
-import {expandSection} from './functions/text-limiter';
+import {debouncedTextCollapser} from './functions/text-limiter';
 import {vhMobile} from './functions/vh-mobile';
 
 //Переменные
@@ -64,23 +63,6 @@ const handleClick = (e) => {
   })
   scroll.scrollTo(targetId, { offset: -25 });
 }
-// Функция схлопывания абзацев
-const textCollapser = (e) => {
-  let target = e.target;
-  if (target.tagName === 'BUTTON') {
-    if (target.parentNode.querySelector('.limiter').hasAttribute('data-collapsed')) {
-      target.parentNode.querySelector('.limiter').removeAttribute('data-collapsed')
-      expandSection(target.parentNode.querySelector('.limiter'))
-      target.textContent = 'Read less';
-      target.classList.remove('collapsed');
-    } else {
-      target.parentNode.querySelector('.limiter').setAttribute('data-collapsed', '')
-      collapseSection(target.parentNode.querySelector('.limiter'))
-      target.textContent = 'Read more';
-      target.classList.add('collapsed');
-    }
-  }
-}
 
 // Функция переключения навигации по скролу
 const sectionObserver = () => {
@@ -92,6 +74,7 @@ const sectionObserver = () => {
 }
 sectionObserver();
 
+// Функция полноэкранного хака
 const vhFixer = () => {
   if (detect.mobile()) {
     vhMobile(windowInnerWidth);
@@ -103,5 +86,5 @@ vhFixer();
 //События
 menu.addEventListener('click', handleClick)
 burger.addEventListener('click', debouncedMenuAnimation);
-window.addEventListener('load', player, bannerAnimation, {once:true});
-main.addEventListener('click', textCollapser);
+window.addEventListener('load', player, bannerAnimation);
+main.addEventListener('click', debouncedTextCollapser);
