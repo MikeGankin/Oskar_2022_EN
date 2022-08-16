@@ -64,4 +64,8 @@
   .table-of-content__link:hover {
     opacity: 1;
   }
+
+  .table-of-content__link:active {
+    transform: scale(0.9);
+  }
 }

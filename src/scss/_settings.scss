@@ -85,7 +85,6 @@ ol {
   line-height: 1;
   transition: all 0.2s $cubic;
   transform: scale(1);
-  opacity: 0.8;
 }
 
 .limiter {
@@ -110,9 +109,12 @@ ol {
     z-index: 5;
     border: 3px solid $main-dark;
     border-radius: 100%;
-    transform: translateY(100px) scale(1);
+    transform: scale(1) translateY(100px);
     cursor: pointer;
     opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s $cubic;
+    
   }
   
   .scroll-up::after {
@@ -134,15 +136,19 @@ ol {
   }
   
   .scroll-up--active {
-    transform: translateY(0);
     opacity: 1;
-    transition: all 0.4 $cubic;
+    visibility: visible;
+    transform: translateY(0);
   }
 }
 
 @media (min-width: 1439px) {
   ol {
     padding-left: 60px;
+  }
+
+  .more-btn {
+    opacity: 0.8;
   }
 }
 

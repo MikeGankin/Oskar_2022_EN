@@ -53,18 +53,27 @@ const navObserver = new IntersectionObserver((entries) => {
 const scrollUpObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      // Show button
       scrollUp.classList.add('scroll-up--active')
+    } else {
+      scrollUp.classList.remove('scroll-up--active')
+    }
+  })}, {
+    threshold: 0.9
+});
+scrollUpObserver.observe(footer);
+
+// Слежка за пересечением вьюпорта для смены цвета скрол-бара
+const scrollBarObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
       document.querySelector('.c-scrollbar_thumb').style.backgroundColor = '#000000';
     } else {
-      // Hide button
-      scrollUp.classList.remove('scroll-up--active')
       document.querySelector('.c-scrollbar_thumb').style.backgroundColor = '';
     }
   })}, {
     threshold: 0.2
 });
-scrollUpObserver.observe(footer);
+scrollBarObserver.observe(footer);
 
 // Проверка девайса
 let detect = new MobileDetect(window.navigator.userAgent);
@@ -80,7 +89,7 @@ const handleClick = (e) => {
   tocLinks.forEach((element)=> {
     element.classList.remove('active');
   })
-  scroll.scrollTo(targetId, { offset: -25 });
+  scroll.scrollTo(targetId);
 }
 
 // Функция переключения навигации по скролу
@@ -104,8 +113,8 @@ vhFixer();
 
 // Функция скрола страницы вверх
 const scrollUpper = () => {
-    scroll.scrollTo('top');
     scrollUp.classList.remove('scroll-up--active');
+    scroll.scrollTo('top');
 }
 
 //События
