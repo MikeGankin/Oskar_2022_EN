@@ -51,6 +51,10 @@
   position: relative;
 }
 
+.navigation__item:active {
+  color: #575757;
+}
+
 .navigation__item a::before {
   content: '';
   position: absolute;
@@ -58,7 +62,7 @@
   height: 3px;
   background-color: $main-dark;
   left: 0;
-  bottom: 10px;
+  bottom: 5px;
   transform: scaleX(0);
   transform-origin: left center;
   transition: transform 0.2s $cubic;
@@ -67,7 +71,28 @@
 .menu__lang-item button {
   width: 40px;
   color: $main-light;
-  padding-top: 8px;
+  position: relative;
+}
+
+.menu__lang-item button:active {
+  color: #E6E6E6;
+}
+
+.menu__lang-item button::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background-color: $main-light;
+  transform: scaleX(0);
+  transition: transform 0.2s $cubic;
+  transform-origin: left center;
+}
+
+.menu__lang-item button:active:before {
+  background-color: #E6E6E6;
 }
 
 .navigation__list {
@@ -98,6 +123,24 @@
   height: 40px;
   position: relative;
   flex: 0 0 auto;
+  transition: transform 0.2s $cubic;
+  transform: scale(1);
+}
+
+.menu__btn:hover .btn__line {
+    transition: transform 0.2s $cubic;
+}
+
+.menu__btn:hover .btn__line--1 {
+  transform: translateY(1px);
+}
+
+.menu__btn:hover .btn__line--3 {
+  transform: translateY(-1px);
+}
+
+.menu__btn:active {
+  transform: scale(0.9);
 }
 
 .btn__line {
@@ -192,17 +235,35 @@
   transition: opacity 0.4s $cubic;
 }
 
+.navigation__item a:active {
+  color: #575757;
+}
+
+.navigation__item a:active:before {
+  background-color: #575757;
+}
+
+.communication a:active {
+  color: #575757;
+}
+
 @media (min-width: 1439px) {
   .navigation__list svg {
     width: 40px;
     height: 40px;
   }
+}
 
+@media (any-hover: hover) {
   .communication a:hover {
     text-decoration: underline;
   }
 
   .navigation__item a:hover:before {
+    transform: scaleX(1);
+  }
+
+  .menu__lang-item button:hover:before {
     transform: scaleX(1);
   }
 }

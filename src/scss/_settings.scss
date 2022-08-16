@@ -4,54 +4,10 @@
   box-sizing: border-box;
 }
 
-@keyframes xBorderInAnimation {
-  from {
-    transform: scaleX(0);
-  }
-
-  to {
-    transform: scaleX(1);
-  }
-}
-@keyframes yBorderInAnimation {
-  from {
-    transform: scaleY(0);
-  }
-
-  to {
-    transform: scaleY(1);
-  }
-}
-@keyframes xBorderOutAnimation {
-  from {
-    transform: scaleX(1);
-  }
-
-  to {
-    transform: scaleX(0);
-  }
-}
-@keyframes yBorderOutAnimation {
-  from {
-    transform: scaleY(1);
-  }
-
-  to {
-    transform: scaleY(0);
-  }
-}
-
 body {
   padding: 0;
   margin: 0;
   background-color: $main-dark;
-  -ms-overflow-style: none; /* for Internet Explorer, Edge */
-  scrollbar-width: none; /* for Firefox */
-  overflow-y: scroll;
-}
-
-body::-webkit-scrollbar {
-  display: none; /* for Chrome, Safari, and Opera */
 }
 
 img {
@@ -125,9 +81,11 @@ ol {
   justify-content: space-between;
   position: relative;
   border: 2px solid $main-light;
-  padding: 12px 7px 7px 7px;
+  padding: 7px;
   line-height: 1;
-  transition: opacity 0.2s $cubic;
+  transition: all 0.2s $cubic;
+  transform: scale(1);
+  opacity: 0.8;
 }
 
 .limiter {
@@ -138,19 +96,58 @@ ol {
 }
 
 .more-btn:active {
-  opacity: 1;
+  transform: scale(0.9);
+}
+
+@media (min-width: 768px) {
+  .scroll-up {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    bottom: 50px;
+    right: 5%;
+    z-index: 5;
+    border: 3px solid $main-dark;
+    border-radius: 100%;
+    transform: translateY(100px);
+    cursor: pointer;
+    opacity: 0;
+  }
+  
+  .scroll-up::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background-image: url('/img/svg/arrow.svg');
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: cover;
+    transform: translate(-50%, -50%) rotate(-90deg);
+  }
+  
+  .scroll-up--active {
+    transform: translateY(0);
+    opacity: 1;
+    transition: all 0.4 $cubic;
+  }
 }
 
 @media (min-width: 1439px) {
   ol {
     padding-left: 60px;
   }
+}
 
-  .more-btn {
-    opacity: 0.8;
-  }
-
+@media (any-hover: hover) {
   .more-btn:hover {
     opacity: 1;
+  }
+
+  .scroll-up:hover {
+    opacity: 0.8;
   }
 }

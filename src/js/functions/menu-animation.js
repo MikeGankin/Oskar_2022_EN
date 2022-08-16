@@ -41,7 +41,7 @@ const menuOpen = () => {
   tl.to(menuContent, {scaleY: 1});
 
   // Анимация ссылок
-  tl.to(menuItems, {stagger: 0.1, opacity: 1, xPercent: 0}, '+=0.2');
+  tl.to(menuItems, {stagger: 0.1, opacity: 1, x: 0}, '+=0.2');
 
   // Анимация контактов
   tl.to(menuCommunication, {stagger: 0.1, opacity: 1});
@@ -55,7 +55,7 @@ const menuClose = () => {
   tl.fromTo(createReversedArray(menuCommunication), {stagger: 0.1, opacity: 1}, {stagger: 0.1, opacity: 0});
 
   // Анимация ссылок
-  tl.fromTo(createReversedArray(menuItems), {stagger: 0.1, opacity: 1, xPercent: 0}, {stagger: 0.1, opacity: 0, xPercent: -50});
+  tl.fromTo(createReversedArray(menuItems), {stagger: 0.1, opacity: 1, x: 0}, {stagger: 0.1, opacity: 0, xPercent: -50});
 
   // Анимация задника меню
   tl.fromTo(menuContent, {scaleY: 1}, {scaleY: 0}, '+=0.3');

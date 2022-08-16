@@ -50,6 +50,11 @@
 
 .section__list {
   padding-left: 30px;
+  margin-bottom: 20px;
+
+  & li {
+    margin-bottom: 20px;
+  }
 }
 
 @media (min-width: 1439px) {

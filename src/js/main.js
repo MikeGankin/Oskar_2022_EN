@@ -7,11 +7,13 @@ import {debouncedTextCollapser} from './functions/text-limiter';
 import {vhMobile} from './functions/vh-mobile';
 
 //Переменные
-let burger = document.querySelector('.menu__btn');
-let menu = document.querySelector('.table-of-content__list');
-let main = document.querySelector('main');
-let sections = document.querySelectorAll('section');
-let tocLinks = document.querySelectorAll('.table-of-content__link');
+const burger = document.querySelector('.menu__btn');
+const menu = document.querySelector('.table-of-content__list');
+const main = document.querySelector('main');
+const sections = document.querySelectorAll('section');
+const tocLinks = document.querySelectorAll('.table-of-content__link');
+const scrollUp = document.querySelector('.scroll-up');
+const footer = document.querySelector('.footer');
 let windowInnerWidth = 0;
 
 // Конструкторы
@@ -30,8 +32,8 @@ const scroll = new LocomotiveScroll({
 // Обновление скрола при изменении высоты элементов на странице
 new ResizeObserver(() => scroll.update()).observe(document.querySelector("[data-scroll-container]"))
 
-// Слежка за пересечением вьюпорта
-const observer = new IntersectionObserver((entries) => {
+// Слежка за пересечением вьюпорта для навигации
+const navObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       tocLinks.forEach(link => {
@@ -46,6 +48,23 @@ const observer = new IntersectionObserver((entries) => {
 }, {
   threshold: 0.6
 });
+
+// Слежка за пересечением вьюпорта для кнопки вверх
+const scrollUpObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      // Show button
+      scrollUp.classList.add('scroll-up--active')
+      document.querySelector('.c-scrollbar_thumb').style.backgroundColor = '#000000';
+    } else {
+      // Hide button
+      scrollUp.classList.remove('scroll-up--active')
+      document.querySelector('.c-scrollbar_thumb').style.backgroundColor = '';
+    }
+  })}, {
+    threshold: 0.2
+});
+scrollUpObserver.observe(footer);
 
 // Проверка девайса
 let detect = new MobileDetect(window.navigator.userAgent);
@@ -69,7 +88,7 @@ const sectionObserver = () => {
   let arr = Array.from(sections);
   let shifted = arr.slice(1, 11);
   shifted.forEach(element => {
-    observer.observe(element)
+    navObserver.observe(element)
   });
 }
 sectionObserver();
@@ -83,8 +102,15 @@ const vhFixer = () => {
 }
 vhFixer();
 
+// Функция скрола страницы вверх
+const scrollUpper = () => {
+    scroll.scrollTo('top');
+    scrollUp.classList.remove('scroll-up--active');
+}
+
 //События
 menu.addEventListener('click', handleClick)
 burger.addEventListener('click', debouncedMenuAnimation);
 window.addEventListener('load', player, bannerAnimation);
 main.addEventListener('click', debouncedTextCollapser);
+scrollUp.addEventListener('click', scrollUpper);
