@@ -32,7 +32,7 @@
 .footer__content a,
 .footer__communication a {
   color: $main-dark;
-  @include adaptiv-font(48, 17);
+  @include adaptiv-font(48, 16);
   text-decoration: none;
   align-self: center;
   justify-self: center;
@@ -63,7 +63,7 @@
 }
 
 .footer__socials {
-  width: 80%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -93,6 +93,10 @@
 @media (min-width: 768px) {
   .footer__socials svg {
     width: 80px;
+  }
+
+  .footer__socials {
+    width: 80%;
   }
 }
 
