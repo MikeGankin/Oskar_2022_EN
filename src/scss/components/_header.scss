@@ -29,10 +29,6 @@
   gap: 15px;
 }
 
-.menu__lang-item {
-  
-}
-
 .navigation__item {
   margin-bottom: 20px;
 }
@@ -245,7 +241,7 @@
   color: #575757;
 }
 
-@media (max-width: 424px) {
+@media (max-width: 425px) {
   .menu__lang-item button {
     width: 30px;
   }
@@ -265,6 +261,13 @@
   .menu__lang-list {
     justify-content: flex-start;
     flex-basis: 100%;
+    margin-right: 0;
+  }
+}
+
+@media (min-width: 425px) and  (max-width: 768px){
+  .menu__lang-list {
+    margin-right: 8%;
   }
 }
 
