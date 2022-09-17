@@ -7,13 +7,20 @@
 body {
   padding: 0;
   margin: 0;
-  background-color: $main-dark;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
 }
 
-img {
+.content-img {
+  object-fit: cover;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  display: block;
+}
+
+.content-img-top {
   object-position: top;
 }
 
@@ -22,17 +29,14 @@ h1 {
   @include adaptiv-font(400, 85);
   font-weight: 400;
   margin-top: 0;
-  color: $main-light;
   line-height: 0.9;
   margin: 0;
 }
 
 h2 {
   font-family: 'Bebas Neue Cyrillic';
-  @include adaptiv-font(80, 55);
+  @include adaptiv-font(80, 48);
   font-weight: 400;
-  color: $main-light;
-  line-height: 1;
 }
 
 button {
@@ -41,10 +45,6 @@ button {
   cursor: pointer;
   padding: 0;
   border: none;
-}
-
-ol {
-  padding-left: 30px;
 }
 
 .visually-hidden {
@@ -60,104 +60,243 @@ ol {
   overflow: hidden;
 }
 
-.section {
-  font-family: 'Baskerville Cyrillic';
+.site-link {
+  display: block;
+  width: fit-content;
+  font-family: 'Eastman';
+  @include adaptiv-font(20, 16);
   font-weight: 400;
-  color: $main-light;
+  color: $main-dark;
+  margin: 0 auto 30px 0;
+  text-decoration: none;
+  padding: 8px 20px;
+  line-height: 1.4;
+  border: 2px solid $main-dark;
+  transition: color $transition;
+  background: $gradient;
+  background-clip: text;
 }
 
-.container {
+.inline-blockquote {
   position: relative;
+  color: $main-dark;
+  font-family: 'Eastman';
+  @include adaptiv-font(25, 16);
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 0;
+  text-align: justify;
+  width: 70%;
+  margin: 60px auto;
+
+  & footer {
+    font-weight: 400;
+    text-align: right;
+  }
 }
 
-.more-btn {
-  font-family: 'Baskerville Cyrillic';
-  font-weight: 400;
-  @include adaptiv-font(30, 22);
-  color: $main-light;
-  margin: 0;
+.inline-blockquote::before{
+  content: "“";
+  font-family: "Eastman";
+  color: #feaf49;
+  font-size: 200px;
+  line-height: 0;
+  position: absolute;
+  left: -60px;
+  z-index: -1;
+  font-weight: 700;
+  top: 70px;
+}
+
+.inline-blockquote::after {
+  content: "“";
+  color:#feaf49;
+  font-family: "Eastman";
+  font-size: 200px;
+  line-height: 0;
+  position: absolute;
+  right: -60px;
+  z-index: -1;
+  font-weight: 700;
+  bottom: 70px;
+  transform: rotate(180deg);
+}
+
+.scroll-up {
+  display: none;
+}
+
+.backwards-btn {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  position: relative;
-  border: 2px solid $main-light;
-  padding: 7px;
-  line-height: 1;
-  transition: all 0.2s $cubic;
-  transform: scale(1);
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 15%;
+  margin-right: auto;
+  z-index: 5;
+  transition: transform $transition;
+
+  & svg {
+    fill: $main-light;
+    width: 30px;
+    height: 30px;
+    transition: fill $transition;
+  }
 }
 
-.limiter {
-  overflow: hidden;
-  transition: height 0.4s $cubic;
-  height: 0;
-  margin-bottom: 20px;
-}
-
-.more-btn:active {
+.backwards-btn:active {
   transform: scale(0.9);
+}
+
+.site-link:active {
+  transform: scale(0.9);
+}
+
+.disable-scroll {
+	position: relative;
+	overflow: hidden;
+	height: 100vh;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+}
+
+.hidden {
+  visibility: hidden;
+  cursor: none;
+}
+
+.centered {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
 }
 
 @media (min-width: 768px) {
   .scroll-up {
+    display: block;
     position: fixed;
     width: 50px;
     height: 50px;
-    border-radius: 100%;
+    border-radius: 15%;
     bottom: 50px;
     right: 5%;
     z-index: 5;
-    border: 3px solid $main-dark;
-    border-radius: 100%;
-    transform: scale(1) translateY(100px);
-    cursor: pointer;
     opacity: 0;
     visibility: hidden;
+    transform: translateY(100px);
     transition: all 0.4s $cubic;
-    
   }
-  
-  .scroll-up::after {
-    content: '';
+
+  .scroll-up svg {
     position: absolute;
     top: 50%;
-    left: 50%;
-    width: 20px;
-    height: 20px;
-    background-image: url('/img/svg/arrow.svg');
-    background-repeat: no-repeat;
-    background-position: 0 0;
-    background-size: cover;
-    transform: translate(-50%, -50%) rotate(-90deg);
+    left: 53%;
+    width: 80%;
+    height: 80%;
+    transform: translate(-50%, -50%) rotate(90deg);
+    fill: $main-dark;
+    transition: fill $transition;
   }
 
   .scroll-up:active {
     transform: scale(0.9);
   }
-  
+
   .scroll-up--active {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
   }
-}
 
-@media (min-width: 1439px) {
-  ol {
-    padding-left: 60px;
+  .inline-blockquote {
+    width: 50%;
   }
 
-  .more-btn {
-    opacity: 0.8;
+  .site-link {
+    margin: 3% auto 5% 0;
+  }
+
+  .centered {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .site-link {
+    height: 47px;
+    position: relative;
+    border: 2px solid transparent;
+
+    &::before {
+      content: '';
+      transform: translate(-50%, -50%);
+      position: absolute;
+      padding: 0;
+      margin: 0;
+      top: 50%;
+      left: 50%;
+      height: inherit;
+      width: 100%;
+      border: 2px solid $main-dark;
+      opacity: 1;
+      transition: opacity $transition;
+    }
+
+    &::after {
+      content: '';
+      transform: translate(-50%, -50%);
+      position: absolute;
+      padding: 0;
+      margin: 0;
+      top: 50%;
+      left: 50%;
+      height: inherit;
+      width: 100%;
+      opacity: 0;
+      transition: opacity $transition;
+      border: 2px solid transparent;
+      border-image: $gradient;
+      border-image-slice: 1;
+    }
   }
 }
 
 @media (any-hover: hover) {
-  .more-btn:hover {
-    opacity: 1;
+  .scroll-up:hover {
+    & svg {
+      fill: $orange;
+    }
   }
 
-  .scroll-up:hover {
-    opacity: 0.7;
+  .site-link:hover {
+    color: transparent;
+
+    &::before {
+      opacity: 0;
+    }
+
+    &::after {
+      opacity: 1;
+    }
+  }
+
+  .backwards-btn:hover {
+    & svg {
+      fill: $orange;
+    }
+  }
+}
+
+@media (hover: none) {
+  .scroll-up:active {
+
+    & svg {
+      fill: $orange;
+    }
   }
 }

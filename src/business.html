@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru" class="page">
+
+@include('partials/head.html')
+
+<body class="body">
+  @include('partials/header.html')
+  <div class="data-scroll-container" id="wrapper" data-scroll-container>
+    <main class="main">
+     <article class="chapter" id="bio" data-scroll-section>
+        <div class="chapter__img">
+          <picture>
+            <source srcset="img/business-big.jpg" media="(min-width: 767px)">
+            <img class="content-img content-img-top" src="img/business-small.jpg">
+          </picture>
+        </div>
+        <div class="chapter__content content container">
+            <h2 class="content__heading">business</h2>
+            <p class="content__text">
+              The life strategy and business plan of&nbsp;entrepreneur Oskar Hartmann is&nbsp;to&nbsp;achieve everything through active actions, be&nbsp;faster than others and not be&nbsp;afraid to&nbsp;try new things all the time. From the age of&nbsp;11, when young Hartmann got his first job, until today, when his companies have reached a&nbsp;capitalization of&nbsp;five billion&nbsp;US dollars, Oskar was guided by&nbsp;the philosophy of&nbsp;action. An&nbsp;entrepreneur, according to&nbsp;Oskar Hartmann, is&nbsp;someone who can take an&nbsp;illusory idea and put it&nbsp;into practice.
+            </p>
+            <p class="content__text">
+              Oskar has founded and is&nbsp;developing many companies:
+            </p>
+            <ul class="content__list business-img-list">
+              <li class="business-img-list__item">
+                <img class="content-img" src="img/business-logo/activo.png">
+              </li>
+              <li class="business-img-list__item">
+                <img class="content-img" src="img/business-logo//factory-market.png">
+              </li>
+              <li class="business-img-list__item">
+                <img class="content-img" src="img/business-logo/teamo.png">
+              </li>
+              <li class="business-img-list__item">
+                <img class="content-img" src="img/business-logo/hlebnoe-mesto.png">
+              </li>
+              <li class="business-img-list__item">
+                <img class="content-img" src="img/business-logo/auto-spot.png">
+              </li>
+              <li class="business-img-list__item">
+                <img class="content-img" src="img/business-logo/home-market.png">
+              </li>
+              <li class="business-img-list__item">
+                <img class="content-img" src="img/business-logo/car-price.png">
+              </li>
+              <li class="business-img-list__item">
+                <img class="content-img" src='img/business-logo/za-odno.png'>
+              <li class="business-img-list__item">
+                <img class="content-img" src="img/business-logo/vita.png">
+              </li>
+            </ul>
+        </div>
+      </article>
+      <div class="article-nav" data-scroll-section>
+        <div class="article-nav__prew">
+          <p>Previous story</p>
+          <a href="decathlon.html">decathlon</a>
+        </div>
+        <div class="article-nav__next">
+          <p>Next story</p>
+          <a href="family.html">family</a>
+        </div>
+      </div>
+      <div data-scroll-section>
+        <a class="site-link centered" href="index.html#business">Home page</a>
+      </div>
+    </main>
+    @include('partials/footer.html')
+  </div>
+  @include('partials/scroll-up.html')
+  <script defer src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+.article-nav {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 90%;
+    margin: 10% auto 10% auto;
+
+    &::before {
+        display: none;
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 2px;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: $main-dark;
+    }
+}
+
+.article-nav p {
+    color: $brown;
+    font-family: 'Eastman';
+    @include adaptiv-font(18, 16);
+    font-weight: 400;
+    line-height: 1.5;
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.article-nav a {
+    color: $main-dark;
+    font-family: "Bebas Neue Cyrillic";
+    @include adaptiv-font(30, 30);
+    font-weight: 400;
+    margin-top: 0;
+    text-decoration: none;
+    transition: all $transition;
+    text-align: center;
+}
+
+.disp-n {
+  display: none;
+}
+
+.article-nav__prew {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.article-nav__next {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.hidden {
+    visibility: hidden;
+    cursor: none;
+}
+
+.dsp-n {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .article-nav {
+        flex-direction: row;
+        margin: 0 auto 5% auto;
+        align-items: flex-start;
+      
+        &::before {
+            display: block;
+        }
+    }
+
+    .article-nav__next {
+        width: 50%;
+        align-items: flex-start;
+        margin-left: 100px;
+
+        & a {
+            text-align: left;
+        }
+
+        & p {
+            text-align: left;
+        }
+    }
+     
+    .article-nav__prew {
+        width: 50%;
+        align-items: flex-end;
+        margin-right: 100px;
+        margin-bottom: 0;
+
+        & a {
+            text-align: right;
+        }
+
+        & p {
+            text-align: right;
+        }
+    }
+
+    .al-c{
+        align-items: center;
+    }
+
+    .no-next::before {
+        display: none;
+    }
+
+    .no-prew::before {
+        display: none;
+    }
+
+    .m-right {
+        margin-right: 0;
+    }
+
+    .m-left{
+        margin-left: 0;
+    }
+}
+
+@media (min-width: 1200px) {
+    .article-nav {
+        width: 60%;
+    }
+
+    .article-nav a:hover {
+        background: $gradient;
+        background-clip: text;
+        color: transparent;
+    }
+}

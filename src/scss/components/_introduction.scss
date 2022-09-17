@@ -14,40 +14,19 @@
     }
 }
 
-@keyframes slideInBanner {
-    from {
-        transform: translateX(-50%);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-@keyframes scaleInVerBottom {
-    from {
-        transform: translateY(-20px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
 .introduction {
     width: 100%;
     height: 100vh;
     height: var(--windowInnerHeight, 100vh);
     padding: 0;
     z-index: 2;
+    background-color: $main-light;
+    position: relative;
 }
 
 .introduction__content {
-  position: relative;
-  top: $height;
+  position: absolute;
+  top: 0;
   left: 0;
   z-index: 1;
   width: 100%;
@@ -63,33 +42,27 @@
   overflow: visible;
 }
 
-.introduction__video-wrapper {
-    width: 100%;
-    height: 100%;
+.introduction__media {
     position: absolute;
-    overflow: hidden;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    bottom: 0;
+    top: 0;
     left: 0;
-}
-
-.introduction video {
-    object-fit: cover;
-    height: 100%;
     width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-image: url('../img/poster.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
 }
 
-.introduction__text {
-  font-size: calc(30px + 20 * ((100vw - 375px) / (1920 - 375)));
-  color: $main-light;
-  margin: 0;
-  padding-left: 6px;
-  line-height: 1.5;
-  font-family: 'demetriss';
-  font-weight: 400;
+.introduction__video {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
 }
 
 .next-screen {
@@ -97,49 +70,66 @@
 }
 
 .oskar {
-    animation: scaleInVerBottom 1s $cubic forwards 0.2s;
+    transform: translateY(-20px);
+    opacity: 0;
 }
 
 .hartmann {
-    animation: scaleInVerBottom 1s $cubic forwards 0.4s;
+    transform: translateY(-20px);
+    opacity: 0;
 }
 
 .unicorn {
-    animation: scaleInVerBottom 1s $cubic forwards 0.6s;
+    transform: translateY(-20px);
+    opacity: 0;
 }
 
-@media (min-width: 1439px) {
-  .next-screen::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      background: $main-light;
-      transform: translate(-50%, -50%);
-      animation-name: dot;
-      animation-duration: 1s;
-      animation-delay: 0.2s;
-      animation-fill-mode: both;
-      animation-iteration-count: infinite;
-      animation-timing-function: $cubic;
-  }
+@media (min-width: 768px) {
+    .introduction__content {
+        top: $height;
+    }
 
-  .next-screen {
-      position: absolute;
-      display: block;
-      z-index: 1;
-      bottom: 5vh;
-      left: 50%;
-      width: 20px;
-      height: 30px;
-      border: 2px solid $main-light;
-      border-radius: 10px;
-      pointer-events: all;
-  }
+    .introduction__media {
+        background-position: center right;
+    }
 
+    .introduction__video {
+        left: 50%;
+    }
+
+    .next-screen {
+        position: absolute;
+        display: block;
+        z-index: 1;
+        bottom: 5vh;
+        left: 50%;
+        width: 20px;
+        height: 30px;
+        border: 2px solid $main-light;
+        border-radius: 10px;
+        pointer-events: all;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: $main-light;
+            transform: translate(-50%, -50%);
+            animation-name: dot;
+            animation-duration: 1s;
+            animation-delay: 0.2s;
+            animation-fill-mode: both;
+            animation-iteration-count: infinite;
+            animation-timing-function: $cubic;
+        }
+    }
+}
+
+@media (min-width: 1200px) {
   .introduction__content svg {
     width: 70%;
   }

@@ -1,29 +1,30 @@
 <!DOCTYPE html>
-<html lang="en" class="page">
+<html lang="en">
 
 @include('partials/head.html')
 
-<body class="body">
-  @include('partials/header.html')
-  <div class="container" id="wrapper" data-scroll-container>
-    <main class="main">
-      @include('partials/introduction.html')
-      @include('partials/bio.html')
-      @include('partials/first-steps.html')
-      @include('partials/investment.html')
-      @include('partials/hobbies.html')
-      @include('partials/about-people.html')
-      @include('partials/outreach.html')
-      @include('partials/media.html')
-      @include('partials/decathlon.html')
-      @include('partials/business.html')
-      @include('partials/family.html')
-      @include('partials/toc.html')
-    </main>
-    @include('partials/footer.html')
-  </div>
-  <button class="scroll-up">
-  </button>
-  <script defer src="js/main.js"></script>
-</body>
+  <body class="body">
+    @include('partials/header.html')
+    <div class="data-scroll-container" data-scroll-container>
+      <main class="history-page">
+        @include('partials/introduction.html')
+        @include('partials/leads/lead-article-bio.html')
+        @include('partials/leads/lead-article-first_steps.html')
+        @include('partials/leads/lead-article-investment.html')
+        @include('partials/leads/lead-article-hobbie.html')
+        @include('partials/leads/lead-article-people.html')
+        @include('partials/leads/lead-article-outreach.html')
+        @include('partials/leads/lead-article-media.html')
+        @include('partials/leads/lead-article-decathlon.html')
+        @include('partials/leads/lead-article-business.html')
+        @include('partials/leads/lead-article-family.html')
+        <div data-scroll-section>
+          <a class="site-link centered" href="blog.html">Read more in my blog</a>
+        </div>
+      </main>
+      @include('partials/footer.html')
+    </div>
+    @include('partials/scroll-up.html')
+    <script defer src="js/main.js"></script>
+  </body>
 </html>

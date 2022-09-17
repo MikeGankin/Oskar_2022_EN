@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" class="page">
+
+@include('partials/head.html')
+
+<body class="body">
+  @include('partials/header.html')
+  <div class="data-scroll-container" id="wrapper" data-scroll-container>
+    <main class="main">
+     <article class="chapter" id="bio" data-scroll-section>
+        <div class="chapter__img">
+          <picture>
+            <source srcset="img/hobbie-big.jpg" media="(min-width: 767px)">
+            <img class="content-img content-img-top" src="img/hobbie-small.jpg">
+          </picture>
+        </div>
+        <div class="chapter__content content container">
+            <h2 class="content__heading">hobbies</h2>
+            <p class="content__text">
+              Oskar is&nbsp;a&nbsp;versatile person, delving into all his hobbies. Since 2017 the entrepreneur has been running his YouTube channel, the total coverage of&nbsp;which exceeds thirty million viewers. Hartmann puts out professionally filmed fascinating videos along with a&nbsp;lot of&nbsp;practical tips and useful information for potential and current businessmen. At&nbsp;the same time in&nbsp;his videos, Oskar focuses on&nbsp;the most important philosophical question: &laquo;What makes a&nbsp;person&rsquo;s life full and happy?&raquo; Oskar is&nbsp;the author of&nbsp;a&nbsp;bestselling book called &laquo;Just do&nbsp;it! Do&nbsp;it&nbsp;easy!&raquo; with a&nbsp;circulation of&nbsp;more than 30,000&nbsp;copies. This is&nbsp;a&nbsp;detailed guide for entrepreneurs and anyone who wants to&nbsp;learn how to&nbsp;manage their lives and achieve goals as&nbsp;successfully as&nbsp;possible. The author does not try to&nbsp;brag about his achievements and does not give a&nbsp;universal recipe for wealth, but helps the reader to&nbsp;build the right thinking that will effectively move towards the goal.
+            </p>
+            <p class="content__text">
+              Oskar is&nbsp;also keen on&nbsp;sports: he&nbsp;is&nbsp;seriously engaged in&nbsp;indoor rowing, swimming, running, has performed parachute jumps numerous times. In&nbsp;2019 one of&nbsp;the largest business forums &laquo;Synergy&raquo; took place in&nbsp;St. Petersburg, where right during the forum Hartmann broke the world record in&nbsp;100-meter sprint rowing which previously belonged to&nbsp;Benjamin Smith. In&nbsp;2021 Oskar started professional cycling. His mentor is&nbsp;the world champion in&nbsp;cycling, Honored Master of&nbsp;Sports Denis Dmitriev, and in&nbsp;2022 the entrepreneur is&nbsp;already planning to&nbsp;go&nbsp;in&nbsp;for the title of&nbsp;candidate master of&nbsp;sports in&nbsp;cycling.
+            </p>
+        </div>
+      </article>
+      <div class="article-nav" data-scroll-section>
+        <div class="article-nav__prew">
+          <p>Previous story</p>
+          <a href="investments.html">Investment</a>
+        </div>
+        <div class="article-nav__next">
+          <p>Next story</p>
+          <a href="people.html">ABOUT PEOPLE AND FOR PEOPLE</a>
+        </div>
+      </div>
+      <div data-scroll-section>
+        <a class="site-link centered" href="index.html#hobbies">Home page</a>
+      </div>
+    </main>
+    @include('partials/footer.html')
+  </div>
+  @include('partials/scroll-up.html')
+  <script defer src="js/main.js"></script>
+</body>
+</html>

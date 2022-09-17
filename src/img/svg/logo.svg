@@ -1,0 +1,13 @@
+<svg stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="0 0 60 40" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width='60' height='40'>
+    <linearGradient gradientTransform="matrix(1 0 0 1 0 0)" gradientUnits="userSpaceOnUse" id="LinearGradient" x1="1.09375" x2="57.1875" y1="20" y2="20">
+        <stop offset="0" stop-color="#ff1c42"/>
+        <stop offset="0.165768" stop-color="#ff4534"/>
+        <stop offset="0.591838" stop-color="#ff7622"/>
+        <stop offset="1" stop-color="#ffb80a"/>
+    </linearGradient>
+    <g id="Untitled">
+        <path d="M57.1875 0.3125L35.1875 13.5L31.5 13.5L22.8125 27.1875L31.5 39.6875L53.6875 39.6875L45.3125 31.1875L44.0938 32.4062L49.6875 38L32.3125 38L24.8125 27.0938L32.4062 15.0938L35.6875 15.0938L48.5938 7.40625L40.0938 16.8125L51 24.0938L51 28.6875L40.5 28.6875L37.1875 25.4062L36 26.5938L39.6875 30.4062L52.5938 30.4062L52.5938 23.3125L42.5 16.5938L57.1875 0.3125ZM37.3125 2.6875L32.3125 11.0938L33.6875 12L35.5938 8.6875L35.5938 11.5L37.3125 11.5L37.3125 2.6875ZM1.1875 13.5L9.90625 27.1875L1.09375 39.6875L11.4062 39.6875L15.5938 33.4062L19.8125 39.6875L28.9062 39.6875L20.0938 27.0938L28.8125 13.5L19.8125 13.5L15.5938 20.8125L11.4062 13.5L1.1875 13.5Z" fill="url(#LinearGradient)" fill-rule="nonzero" opacity="1" stroke="none"/>
+    </g>
+</svg>
+
+

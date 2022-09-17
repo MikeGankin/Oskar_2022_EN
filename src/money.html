@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" class="page">
+
+@include('partials/head.html')
+
+<body class="body">
+  @include('partials/header.html')
+  <div class="data-scroll-container" id="wrapper" data-scroll-container>
+    <main class="main">
+     <article class="chapter" id="bio" data-scroll-section>
+        <div class="chapter__img">
+          <picture>
+            <source srcset="img/money-big.jpg" media="(min-width: 767px)">
+            <img class="content-img content-img-top" src="img/money-small.jpg">
+          </picture>
+        </div>
+        <div class="chapter__content content container">
+            <h2 class="content__heading">Money</h2>
+            <p class="content__text paragraph-margin">
+              Oskar Hartmann is&nbsp;one of&nbsp;the most successful Russian entrepreneurs who is&nbsp;a&nbsp;vivid example of&nbsp;how ambitious goals can be&nbsp;achieved from scratch. To&nbsp;date, Hartmann is&nbsp;the founder of&nbsp;more than 10&nbsp;companies with a&nbsp;total capitalization of&nbsp;more than 5&nbsp;billion&nbsp;US dollars. However, the big money did not turn Oskar&rsquo;s head. &laquo;I&nbsp;spend money on&nbsp;emotions. To&nbsp;feel good and not feel bad&raquo;&nbsp;&mdash; that&rsquo;s how Hartmann treats his capital.
+            </p>
+            <div class="content__img paragraph-img">
+              <picture>
+                <source srcset="img/oscar-and-igor-big.jpg" media="(min-width: 767px)">
+                <img class="content-img content-img-top" src="img/oscar-and-igor-small.jpg">
+              </picture>
+            </div>
+            <p class="content__text">
+              Together with entrepreneur and philanthropist Igor Rybakov, Oskar launched the
+              <a href="https://legacy-ef.com/tselevye-kapitaly/world-entrepreneur-leadership-foundation/">World Entrepreneurship Leadership Foundation (WELF).</a> It&nbsp;is&nbsp;a&nbsp;foundation for leadership programs to&nbsp;support entrepreneurs around the world, a&nbsp;non-profit organization that aims to&nbsp;rally philanthropists and develop leadership programs.
+            </p>
+            <p class="content__text">
+              Hartmann prefers to&nbsp;invest most of&nbsp;his funds in&nbsp;active instruments&nbsp;&mdash; shares of&nbsp;promising companies. It&nbsp;is&nbsp;for this reason that he&nbsp;took up&nbsp;venture capital investing, putting money in&nbsp;new&nbsp;IT startups.
+              <a href="http://larix.vc/">Oskar Larix Venture Fund</a> (founded jointly with Igor Rybakov) The Fund has assets worth $100&nbsp;million. Its portfolio now includes many companies:
+            </p>
+            <ul class="content__list business-img-list">
+              <li class="business-img-list__item">
+                <img class="content-img" src="img/business-logo/flashenpost.png">
+              </li>
+              <li class="business-img-list__item">
+                <img class="content-img" src="img/business-logo/remont.png">
+              </li>
+              <li class="business-img-list__item">
+                <img class="content-img" src="img/business-logo/key.png">
+              </li>
+              <li class="business-img-list__item">
+                <img class="content-img" src="img/business-logo/vehiculum.png">
+              </li>
+              <li class="business-img-list__item">
+                <img class="content-img" src="img/business-logo/convargo.png">
+              </li>
+              <li class="business-img-list__item">
+                <img class="content-img" src="img/business-logo/sell-any-home.png">
+              </li>
+            </ul>
+            <p class="content__text">
+              The entrepreneur is&nbsp;not going to&nbsp;slow down and goes on&nbsp;investing actively, expanding his business empire.
+            </p>
+        </div>
+      </article>
+      <div data-scroll-section>
+        <a class="site-link centered" href="index.html">Home page</a>
+      </div>
+    </main>
+    @include('partials/footer.html')
+  </div>
+  @include('partials/scroll-up.html')
+  <script defer src="js/main.js"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" class="page">
+
+@include('partials/head.html')
+
+<body class="body">
+  @include('partials/header.html')
+  <div class="data-scroll-container" id="wrapper" data-scroll-container>
+    <main class="main">
+     <article class="chapter" id="bio" data-scroll-section>
+        <div class="chapter__img">
+          <picture>
+            <source srcset="img/investment-big.jpg" media="(min-width: 767px)">
+            <img class="content-img content-img-top" src="img/investment-small.jpg">
+          </picture>
+        </div>
+        <div class="chapter__content content container">
+            <h2 class="content__heading">investments</h2>
+            <p class="content__text">
+              Oskar Harmann is&nbsp;a&nbsp;venture capitalist and business angel. He&nbsp;is&nbsp;a&nbsp;co-founder and partner of&nbsp;Fastline Ventures, Simile Ventures Partners, and LARIX&nbsp;funds. Hartmann has invested in&nbsp;many international companies: Auto1&nbsp;Group, Casacanda (fab.com), Frontier Car Group, FashionAndYou, Sukar, Nanjacart, June Homes, Flaschenpost.de. Oskar&rsquo;s venture investment portfolio (including the Hartmann family holding Hartmann Holdings) includes more than seventy companies. Five of&nbsp;them have already reached a&nbsp;capitalization of&nbsp;more than $&nbsp;1&nbsp;billion.
+            </p>
+            <p class="content__text">
+              Oskar Hartmann is&nbsp;widely recognized as&nbsp;one of&nbsp;the most successful business angels in&nbsp;the world. At&nbsp;the Ernst&amp;Young international competition &laquo;Entrepreneur of&nbsp;the Year 2015&raquo; in&nbsp;Russia Oskar received the nomination &laquo;Master of&nbsp;Investment&raquo;. Hartmann acts as&nbsp;an&nbsp;ambassador and an&nbsp;active participant in&nbsp;several annual competitions for entrepreneurs: &laquo;Breakthrough of&nbsp;the Year&raquo;, EY-Entrepreneur of&nbsp;the year.
+            </p>
+            <p class="content__text">
+              In&nbsp;2018, he&nbsp;entered the top 1000 richest residents of&nbsp;Germany. Today Oskar is&nbsp;a&nbsp;member of&nbsp;the board of&nbsp;directors of&nbsp;Alfa-Bank, the Airplane Group&nbsp;&mdash; one of&nbsp;the largest federal developers, as&nbsp;well as&nbsp;the Moscow Exchange, the largest Russian stock exchange holding. Investments for Oskar Hartmann are mostly a&nbsp;way to&nbsp;explore the world. His goal was to&nbsp;invest in&nbsp;ideas that transform the world and people for the better by&nbsp;creating new values.
+            </p>
+        </div>
+      </article>
+      <div class="article-nav" data-scroll-section>
+        <div class="article-nav__prew">
+          <p>Previous story</p>
+          <a href="first-steps.html">FIRST BUSINESS-STEPS</a>
+        </div>
+        <div class="article-nav__next">
+          <p>Next story</p>
+          <a href="hobbies.html">hobbies</a>
+        </div>
+      </div>
+      <div data-scroll-section>
+        <a class="site-link centered" href="index.html#investment">Home page</a>
+      </div>
+    </main>
+    @include('partials/footer.html')
+  </div>
+  @include('partials/scroll-up.html')
+  <script defer src="js/main.js"></script>
+</body>
+</html>

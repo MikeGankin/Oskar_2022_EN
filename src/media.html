@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru" class="page">
+
+@include('partials/head.html')
+
+<body class="body">
+  @include('partials/header.html')
+  <div class="data-scroll-container" id="wrapper" data-scroll-container>
+    <main class="main">
+     <article class="chapter" id="bio" data-scroll-section>
+        <div class="chapter__img">
+          <picture>
+            <source srcset="img/media-big.jpg" media="(min-width: 767px)">
+            <img class="content-img content-img-top" src="img/media-small.jpg">
+          </picture>
+        </div>
+        <div class="chapter__content content container">
+            <h2 class="content__heading">Media</h2>
+            <p class="content__text">
+              For the first ten years of&nbsp;his entrepreneurial activity, Oskar successfully managed all his projects, focusing on&nbsp;all the opportunities they could provide him with. After reaching a&nbsp;certain point, Hartman had the necessary amount of&nbsp;resources not only to&nbsp;provide for himself and his family. Remembering how the scholarship he&nbsp;received helped him back in&nbsp;the day, Oskar set himself the goal of&nbsp;helping others on&nbsp;their path towards their goals and aspirations. Letters full of&nbsp;gratitude and feedback from people who really benefited from Oskar&rsquo;s philosophy charge him with energy and incentive to&nbsp;further development.
+            </p>
+            <p class="content__text">
+              Everything Oskar Hartmann does is&nbsp;dedicated to&nbsp;the notion of&nbsp;life. He&nbsp;explores what is&nbsp;widely considered to&nbsp;create a&nbsp;full and happy life, and what hampers these processes and pulls a&nbsp;person down. Oskar is&nbsp;deeply convinced that the most important component of&nbsp;a&nbsp;successful and fulfilling life is&nbsp;Action. After all, it&nbsp;is&nbsp;Action that turns dreams into reality.
+            </p>
+            <blockquote class="inline-blockquote">
+              <i>I&nbsp;am a&nbsp;man of&nbsp;action and man of&nbsp;construction. This is&nbsp;my&nbsp;main value, my&nbsp;habit, a&nbsp;muscle that&nbsp;I train every day.</i>
+              <footer>Oscar Hartmann</footer>
+            </blockquote>
+            <p class="content__text">
+              All of&nbsp;Hartmann&rsquo;s initiatives, organizations and appeals are aimed at&nbsp;helping people get off the couch and finally start acting. The cherished goal of&nbsp;an&nbsp;entrepreneur is&nbsp;to&nbsp;inspire people by&nbsp;setting his own example, to&nbsp;guide them forward on&nbsp;the journey towards the life they dream&nbsp;of.
+            </p>
+        </div>
+      </article>
+      <div class="article-nav" data-scroll-section>
+        <div class="article-nav__prew">
+          <p>Previous story</p>
+          <a href="outreach.html">OUTREACH and communities</a>
+        </div>
+        <div class="article-nav__next">
+          <p>Next story</p>
+          <a href="decathlon.html">decathlon</a>
+        </div>
+      </div>
+      <div data-scroll-section>
+        <a class="site-link centered" href="index.html#media">Home page</a>
+      </div>
+    </main>
+    @include('partials/footer.html')
+  </div>
+  @include('partials/scroll-up.html')
+  <script defer src="js/main.js"></script>
+</body>
+</html>

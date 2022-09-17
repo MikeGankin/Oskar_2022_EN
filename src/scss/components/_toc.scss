@@ -24,7 +24,7 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
-    transition: transform 0.4s $cubic;
+    transition: transform $transition;
     top: 50%;
     transform: translateY(-50%);
   }
@@ -41,7 +41,7 @@
     height: 2px;
     background-color: $main-light;
     margin-top: 13px;
-    transition: all 0.4s $cubic;
+    transition: all $transition;
   }
 
   .table-of-content__link {
@@ -52,7 +52,7 @@
     text-decoration: none;
     transform: scale(1);
     opacity: 0.5;
-    transition: all 0.2s $cubic;
+    transition: all $transition;
     cursor: pointer;
   }
 

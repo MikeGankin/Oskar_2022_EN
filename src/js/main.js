@@ -1,53 +1,47 @@
 import LocomotiveScroll from 'locomotive-scroll';
-import MobileDetect from 'mobile-detect';
 import {debouncedMenuAnimation} from "./functions/menu-animation";
-import {player} from "./functions/player";
+import {debouncedLangMenuAnimation} from "./functions/menu-animation";
+import {langToggleScrollClose} from "./functions/menu-animation";
 import {bannerAnimation} from "./functions/banner-animation";
-import {debouncedTextCollapser} from './functions/text-limiter';
-import {vhMobile} from './functions/vh-mobile';
 
 //Переменные
 const burger = document.querySelector('.menu__btn');
-const menu = document.querySelector('.table-of-content__list');
-const main = document.querySelector('main');
-const sections = document.querySelectorAll('section');
-const tocLinks = document.querySelectorAll('.table-of-content__link');
-const scrollUp = document.querySelector('.scroll-up');
 const footer = document.querySelector('.footer');
-let windowInnerWidth = 0;
+const langToggler = document.querySelector('.menu__lang-btn');
+const langIndicator = langToggler.querySelector('span');
+const scrollUp = document.querySelector('.scroll-up');
+const mobileDeviceDetector = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+const macOsDetector = /(Mac|iPhone|iPod|iPad)/i.test(navigator.platform);
 
 // Конструкторы
+
 // Управление скроллом
-const scroll = new LocomotiveScroll({
-  el: document.querySelector('[data-scroll-container]'),
-  smooth: true,
-  tablet: {
-    smooth: false,
-  },
-  smartphone: {
-    smooth: false,
+const scrollManager = () => {
+  if (!mobileDeviceDetector) {
+    const scroll = new LocomotiveScroll({
+      el: document.querySelector('[data-scroll-container]'),
+      smooth: true,
+      tablet: {
+        smooth: false,
+      },
+      smartphone: {
+        smooth: false,
+      }
+    });
+     // Обновление скрола при изменении высоты элементов на странице
+    new ResizeObserver(() => scroll.update()).observe(document.querySelector("[data-scroll-container]"))
+    scrollUp.addEventListener('click', () => {
+      scrollUp.classList.remove('scroll-up--active');
+      scroll.scrollTo('top');
+    });
+  } else {
+    scrollUp.addEventListener('click', () => {
+      scrollUp.classList.remove('scroll-up--active');
+      window.scrollTo(0, 0);
+    });
   }
-});
-
-// Обновление скрола при изменении высоты элементов на странице
-new ResizeObserver(() => scroll.update()).observe(document.querySelector("[data-scroll-container]"))
-
-// Слежка за пересечением вьюпорта для навигации
-const navObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      tocLinks.forEach(link => {
-        if (link.getAttribute('href').replace('#', '') === entry.target.id) {
-          link.classList.add('active');
-        } else {
-          link.classList.remove('active');
-        }
-      });
-    }
-  });
-}, {
-  threshold: 0.6
-});
+}
+scrollManager();
 
 // Слежка за пересечением вьюпорта для кнопки вверх
 const scrollUpObserver = new IntersectionObserver((entries) => {
@@ -58,68 +52,70 @@ const scrollUpObserver = new IntersectionObserver((entries) => {
       scrollUp.classList.remove('scroll-up--active')
     }
   })}, {
-    threshold: 0.9
+    threshold: 0.5
 });
 scrollUpObserver.observe(footer);
 
-// Слежка за пересечением вьюпорта для смены цвета скрол-бара
-const scrollBarObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      document.querySelector('.c-scrollbar_thumb').style.backgroundColor = '#000000';
-    } else {
-      document.querySelector('.c-scrollbar_thumb').style.backgroundColor = '';
-    }
-  })}, {
-    threshold: 0.2
-});
-scrollBarObserver.observe(footer);
-
-// Проверка девайса
-let detect = new MobileDetect(window.navigator.userAgent);
-
 //Функции
 
-// Функция переключения навигации по клику
-const handleClick = (e) => {
-  e.preventDefault();
-  let target = e.target;
-  if (target.tagName !== 'A') return;
-  let targetId = e.target.getAttribute('href');
-  tocLinks.forEach((element)=> {
-    element.classList.remove('active');
-  })
-  scroll.scrollTo(targetId);
-}
-
-// Функция переключения навигации по скролу
-const sectionObserver = () => {
-  let arr = Array.from(sections);
-  let shifted = arr.slice(1, 11);
-  shifted.forEach(element => {
-    navObserver.observe(element)
-  });
-}
-sectionObserver();
-
-// Функция полноэкранного хака
-const vhFixer = () => {
-  if (detect.mobile()) {
-    vhMobile(windowInnerWidth);
-    window.addEventListener('resize', vhMobile);
+const macStyleFixer = () => {
+  const blogLink = document.querySelector('.blog-link');
+  const menuLangItem = document.querySelectorAll('.menu__lang-item');
+  if (macOsDetector && blogLink) {
+    blogLink.style.marginTop = '8px';
+    menuLangItem.forEach((item) => {
+      item.style.marginTop = '6px';
+    })
   }
 }
-vhFixer();
+macStyleFixer();
 
-// Функция скрола страницы вверх
-const scrollUpper = () => {
-    scrollUp.classList.remove('scroll-up--active');
-    scroll.scrollTo('top');
+// Функция хака VH
+const vh = () => {
+  let windowInnerWidth = 0;
+  const handleResize = () => {
+    const currentWindowInnerWidth = window.innerWidth;
+    if (currentWindowInnerWidth !== windowInnerWidth) {
+      windowInnerWidth = currentWindowInnerWidth;
+      const windowInnerHeight = window.innerHeight;
+      document.documentElement.style.setProperty('--windowInnerHeight', `${windowInnerHeight}px`)
+    }
+  }
+  if (mobileDeviceDetector) {
+    handleResize();
+  }
 }
+vh();
+
+// Функция индикации текущего языка
+const langIndicatorToggler = () => {
+  if (document.documentElement.lang === 'ru') {
+    langIndicator.textContent = 'RU';
+  }
+  if (document.documentElement.lang === 'en') {
+    langIndicator.textContent = 'EN';
+  }
+  if (document.documentElement.lang === 'de') {
+    langIndicator.textContent = 'DE';
+  }
+}
+langIndicatorToggler();
 
 //События
-menu.addEventListener('click', handleClick)
 burger.addEventListener('click', debouncedMenuAnimation);
-window.addEventListener('load', player, bannerAnimation);
-main.addEventListener('click', debouncedTextCollapser);
-scrollUp.addEventListener('click', scrollUpper);
+langToggler.addEventListener('click', ()=> {
+  if (mobileDeviceDetector && window.innerWidth < 1200) {
+    debouncedLangMenuAnimation();
+  }
+});
+window.addEventListener('load', ()=> {
+  setTimeout(() => {
+    bannerAnimation();
+  }, 100);
+});
+window.addEventListener('scroll', langToggleScrollClose);
+
+
+
+
+

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" class="page">
+
+@include('partials/head.html')
+
+<body class="body">
+  @include('partials/header.html')
+  <div class="data-scroll-container" id="wrapper" data-scroll-container>
+    <main class="main">
+      <article class="chapter" id="bio" data-scroll-section>
+        <div class="chapter__img">
+          <picture>
+            <source srcset="img/steps-big.jpg" media="(min-width: 767px)">
+            <img class="content-img content-img-top" src="img/steps-small.jpg">
+          </picture>
+        </div>
+        <div class="chapter__content content container">
+            <h2 class="content__heading">FIRST BUSINESS-STEPS</h2>
+            <p class="content__text">
+              The first business that Oskar became the founder of&nbsp;was a&nbsp;sports
+              nutrition online-store in&nbsp;Germany. In&nbsp;2010 the entrepreneur created
+              Sapato, a&nbsp;company specializing in&nbsp;the online sales of&nbsp;new shoe
+              collections. Then the first live-TV store in&nbsp;Russia was created&nbsp;&mdash;
+              called Shopping Live, which quickly became the leader in&nbsp;sales among its competitors.
+            </p>
+            <p class="content__text">
+              In&nbsp;2012 Sapato was acquired by&nbsp;Ozon, and Oskar became a&nbsp;co-shareholder of&nbsp;Ozon.ru. At&nbsp;the same time Hartmann sold the main share of&nbsp;Shopping Live which allowed him to&nbsp;obtain capital to&nbsp;launch a&nbsp;number of&nbsp;his own enterprises: Teamo, Carprice, Relevant Media, HomeMarket, Aktivo, Vitaportal, AutoSpot, Iqcard, Hlebnoe mesto and several Internet companies.
+            </p>
+        </div>
+      </article>
+      <div class="article-nav" data-scroll-section>
+        <div class="article-nav__prew">
+          <p>Previous story</p>
+          <a href="bio.html">BIOGRAPHY</a>
+        </div>
+        <div class="article-nav__next">
+          <p>Next story</p>
+          <a href="investments.html">investments</a>
+        </div>
+      </div>
+      <div data-scroll-section>
+        <a class="site-link centered" href="index.html#first-steps">Home page</a>
+      </div>
+    </main>
+    @include('partials/footer.html')
+  </div>
+  @include('partials/scroll-up.html')
+  <script defer src="js/main.js"></script>
+</body>
+</html>

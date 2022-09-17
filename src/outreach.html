@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru" class="page">
+
+@include('partials/head.html')
+
+<body class="body">
+  @include('partials/header.html')
+  <div class="data-scroll-container" id="wrapper" data-scroll-container>
+    <main class="main">
+     <article class="chapter" id="bio" data-scroll-section>
+        <div class="chapter__img">
+          <picture>
+            <source srcset="img/outreach-big.jpg" media="(min-width: 767px)">
+            <img class="content-img content-img-top" src="img/outreach-small.jpg">
+          </picture>
+        </div>
+        <div class="chapter__content content container">
+            <h2 class="content__heading">OUTREACH AND COMMUNITIES</h2>
+            <p class="content__text">
+              Oskar Hartmann is&nbsp;one of&nbsp;the most open and highly-demanded speakers in&nbsp;Russia. An&nbsp;entrepreneur personally demonstrates an&nbsp;active approach to&nbsp;business and life, as&nbsp;well as&nbsp;the benefits of&nbsp;positive thinking. Oskar devotes a&nbsp;significant part of&nbsp;his time to&nbsp;the development of&nbsp;entrepreneurship around the world. His initiatives are aimed at&nbsp;supporting and unveiling the potential of&nbsp;young talented people and successful entrepreneurs. More than twenty thousand people a&nbsp;year take part in&nbsp;programs and seminars created by&nbsp;Oskar.
+            </p>
+            <p class="content__text">
+              Oskar not only creates, but also oversees many communities:
+            </p>
+            <ol class="content__list content-list">
+              <li class="content-list__item">
+                The Preaktum Leadership Program is&nbsp;an&nbsp;educational ecosystem that connects companies and young entrepreneurs. Interactive courses from leading experts of&nbsp;Russian and global companies are held on&nbsp;our own educational platform. Participants study marketing, sales, programming, business models and economics.
+              </li>
+              <li class="content-list__item">
+                Equium is&nbsp;a&nbsp;business community that unites the most influential entrepreneurs&nbsp;&mdash; people who are not only able to&nbsp;build a&nbsp;multibillion-dollar company, but also support socially transformative activities that change the life of&nbsp;society for the better. As&nbsp;its main goal, this community sees a&nbsp;qualitative change in&nbsp;macroeconomic processes and the improvement of&nbsp;human well-being through the development of&nbsp;entrepreneurship and the popularization of&nbsp;positive role models.
+              </li>
+              <li class="content-list__item">
+                In&nbsp;addition, Oskar Hartmann holds the position of&nbsp;Chairman of&nbsp;the Board of&nbsp;Trustees of&nbsp;the Rybakov Foundation, a&nbsp;non-profit organization created to&nbsp;support Russian entrepreneurship, as&nbsp;well as&nbsp;social non-profit projects and education.
+              </li>
+            </ol>
+        </div>
+      </article>
+      <div class="article-nav" data-scroll-section>
+        <div class="article-nav__prew">
+          <p>Previous story</p>
+          <a href="people.html">ABOUT PEOPLE AND FOR PEOPLE</a>
+        </div>
+        <div class="article-nav__next">
+          <p>Next story</p>
+          <a href="media.html">Media</a>
+        </div>
+      </div>
+      <div data-scroll-section>
+        <a class="site-link centered" href="index.html#outreach">Home page</a>
+      </div>
+    </main>
+    @include('partials/footer.html')
+  </div>
+  @include('partials/scroll-up.html')
+  <script defer src="js/main.js"></script>
+</body>
+</html>

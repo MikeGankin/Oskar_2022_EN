@@ -1,0 +1,14 @@
+<svg stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 227.096 227.096" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+    <linearGradient id="gradient">
+          <stop offset="0%" stop-color="#FF1C42"/>
+          <stop offset="40%" stop-color="#FF4534" />
+          <stop offset="60%" stop-color="#FF7622" />
+          <stop offset="100%" stop-color="#FFB80A" />
+    </linearGradient>
+    <clipPath id="a">
+        <path d="M0 0h227.096v227.096H0z"/>
+    </clipPath>
+    <g clip-path="url(#a)">
+        <path d="m74.316 194.669 5.902-5.898-64.18-64.19H227.15v-8.35H16.027l64.19-64.179-5.901-5.909L.055 120.404l74.26 74.265Z"/>
+    </g>
+</svg>

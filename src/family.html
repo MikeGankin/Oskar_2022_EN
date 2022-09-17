@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru" class="page">
+
+@include('partials/head.html')
+
+<body class="body">
+  @include('partials/header.html')
+  <div class="data-scroll-container" id="wrapper" data-scroll-container>
+    <main class="main">
+     <article class="chapter" id="bio" data-scroll-section>
+        <div class="chapter__img">
+            <img class="content-img content-img-top" src="img/family.jpg">
+        </div>
+        <div class="chapter__content content container">
+            <h2 class="content__heading">family</h2>
+            <p class="content__text">
+              Oskar Hartmann has been happy for many years in&nbsp;his one and only marriage. He&nbsp;is&nbsp;married to&nbsp;Tatiana Hartmann, with whom the entrepreneur has three children: two sons and a&nbsp;daughter. Oskar met his future wife while still a&nbsp;student when he&nbsp;came to&nbsp;Moscow on&nbsp;an&nbsp;experience exchange program. Tatiana is&nbsp;a&nbsp;loyal companion of&nbsp;Oskar in&nbsp;all spheres of&nbsp;life. In&nbsp;her statements, she is&nbsp;in&nbsp;deep solidarity with her husband and believes that the basic business and human qualities of&nbsp;a&nbsp;person are laid down in&nbsp;childhood. The Hartmanns attach great importance to&nbsp;the upbringing and education of&nbsp;children, so&nbsp;they decided not to&nbsp;send them to&nbsp;study abroad, so&nbsp;as&nbsp;not to&nbsp;destroy family ties and take an&nbsp;active part in&nbsp;their formation.
+            </p>
+            <p class="content__text">
+              Applying his own &laquo;decathlon&raquo; principle, Oskar tries not to&nbsp;focus all attention on&nbsp;work activities in&nbsp;order to&nbsp;devote as&nbsp;much time as&nbsp;possible to&nbsp;his family.
+            </p>
+
+            <blockquote class="inline-blockquote">
+              <i>I&nbsp;am grateful to&nbsp;my&nbsp;wife Tatiana. Thanks to&nbsp;her&nbsp;I was able to&nbsp;remain human. She didn&rsquo;t let me&nbsp;turn into a&nbsp;business machine and helped me&nbsp;to&nbsp;reach peace in&nbsp;my&nbsp;self-consciousness.</i>
+              <footer>Oskar Hartmann</footer>
+            </blockquote>
+
+            <p class="content__text">
+              Oskar and Tatiana travel a&nbsp;lot with their children and have already made more than a&nbsp;hundred trips around the world. Hartmann is&nbsp;convinced that if&nbsp;parents want to&nbsp;give their children unconditional love, then they should try to&nbsp;be&nbsp;a&nbsp;positive example in&nbsp;everything: in&nbsp;relationships with the second half, in&nbsp;a&nbsp;friendly atmosphere at&nbsp;home, in&nbsp;a&nbsp;quality pastime with the family. The Hartmanns support the ideas and identities of&nbsp;their children, while not trying to&nbsp;make them the best copies of&nbsp;themselves.
+            </p>
+        </div>
+      </article>
+      <div class="article-nav no-next" data-scroll-section>
+        <div class="article-nav__prew al-c m-right">
+          <p>Previous story</p>
+          <a href="business.html">business</a>
+        </div>
+        <div class="article-nav__next dsp-n">
+          <p></p>
+          <a href="#"></a>
+        </div>
+      </div>
+      <div data-scroll-section>
+        <a class="site-link centered" href="index.html#family">Home page</a>
+      </div>
+    </main>
+    @include('partials/footer.html')
+  </div>
+  @include('partials/scroll-up.html')
+  <script defer src="js/main.js"></script>
+</body>
+</html>
